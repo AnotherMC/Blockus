@@ -2,12 +2,9 @@
   "replace": false,
   "values": [
     "blockus:diorite_bricks",
-    "blockus:diorite_brick_stairs",
-    "blockus:diorite_brick_slab",
     "blockus:herringbone_diorite_bricks",
     "blockus:chiseled_diorite_bricks",
     "blockus:cracked_diorite_bricks",
-    "blockus:polished_diorite_pillar",
-    "blockus:diorite_circular_paving"
+    "blockus:polished_diorite_pillar"
   ]
 }

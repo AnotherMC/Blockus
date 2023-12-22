@@ -12,10 +12,6 @@ import net.minecraft.util.Identifier;
 import static com.terraformersmc.terraform.boat.api.TerraformBoatTypeRegistry.createKey;
 
 public class BlockusEntities {
-    public static final TerraformBoatType WHITE_OAK_BOAT = registerBoat("white_oak");
-    public static final TerraformBoatType CHARRED_BOAT = registerBoat("charred");
-    public static final TerraformBoatType RAW_BAMBOO_RAFT = registerRaft("raw_bamboo");
-
     public static TerraformBoatType registerBoat(String boatPath) {
         Identifier id = Blockus.id(boatPath + "_boat");
         Identifier chestId = Blockus.id(boatPath + "_chest_boat");

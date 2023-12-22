@@ -12,9 +12,8 @@
     "haykam821"
   ],
   "contact": {
-    "homepage": "https://www.curseforge.com/minecraft/mc-mods/blockus",
-    "sources": "https://github.com/Brandcraf06/Blockus",
-    "issues": "https://github.com/Brandcraf06/Blockus/issues"
+    "homepage": "https://github.com/AnotherMC/Blockus",
+    "sources": "https://github.com/AnotherMC/Blockus"
   },
   "license": "GPLv3",
   "icon": "assets/blockus/icon.png",

@@ -1,7 +1,9 @@
 {
   "replace": false,
   "values": [
-    "#blockus:white_oak_logs",
-    "blockus:legacy_log"
+    {
+      "id": "#blockus:white_oak_logs",
+      "required": false
+    }
   ]
 }

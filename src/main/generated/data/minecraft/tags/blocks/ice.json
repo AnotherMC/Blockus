@@ -1,7 +1,9 @@
 {
   "replace": false,
   "values": [
-    "#blockus:ice_bricks",
-    "blockus:ice_brick_wall"
+    {
+      "id": "#blockus:ice_bricks",
+      "required": false
+    }
   ]
 }

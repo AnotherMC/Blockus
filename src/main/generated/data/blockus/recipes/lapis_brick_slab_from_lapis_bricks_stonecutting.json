@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 2,
-  "ingredient": {
-    "item": "blockus:lapis_bricks"
-  },
-  "result": "blockus:lapis_brick_slab"
-}

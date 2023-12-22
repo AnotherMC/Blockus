@@ -77,11 +77,6 @@ public class BlockusWorldgenProvider extends FabricDynamicRegistryProvider {
         entries.add(BlockusWorldgenFeatures.WHITE_OAK_CHECKED, WHITE_OAK_CHECKED);
 
         // legacy oak
-        ConfiguredFeature<?, ?> LEGACY_OAK = new ConfiguredFeature<>(Feature.TREE, BlockusWorldgenFeatures.legacy_oak().build());
-        RegistryEntry<ConfiguredFeature<?, ?>> legacyOak = entries.add(BlockusWorldgenFeatures.LEGACY_OAK, LEGACY_OAK);
-
-        PlacedFeature LEGACY_OAK_CHECKED = new PlacedFeature(legacyOak, List.of(new PlacementModifier[]{PlacedFeatures.wouldSurvive(BlockusBlocks.LEGACY_SAPLING)}));
-        entries.add(BlockusWorldgenFeatures.LEGACY_OAK_CHECKED, LEGACY_OAK_CHECKED);
 
         // rainbow rose
         ConfiguredFeature<?, ?> RAINBOW_ROSE = new ConfiguredFeature<>(Feature.FLOWER, new RandomPatchFeatureConfig(12, 7, 2, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(BlockusBlocks.RAINBOW_ROSE)))));

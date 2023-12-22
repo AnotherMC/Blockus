@@ -1,7 +1,10 @@
 {
   "replace": false,
   "values": [
-    "#blockus:obsidian",
+    {
+      "id": "#blockus:obsidian",
+      "required": false
+    },
     "blockus:nether_stars_block"
   ]
 }

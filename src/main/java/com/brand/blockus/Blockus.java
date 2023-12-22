@@ -3,7 +3,6 @@ package com.brand.blockus;
 import com.brand.blockus.content.BlockusBlocks;
 import com.brand.blockus.content.BlockusEntities;
 import com.brand.blockus.content.BlockusItems;
-import com.brand.blockus.content.types.ColoredTilesTypes;
 import com.brand.blockus.itemgroups.BlockusItemGroups;
 import com.brand.blockus.itemgroups.content.*;
 import com.brand.blockus.utils.effect.BlockusEffects;
@@ -32,7 +31,6 @@ public class Blockus implements ModInitializer {
         Reflection.initialize(BlockusBlocks.class);
         Reflection.initialize(BlockusItems.class);
         Reflection.initialize(BlockusEntities.class);
-        Reflection.initialize(ColoredTilesTypes.class);
         Reflection.initialize(BlockusEffects.class);
 
         BlockusItemGroups.init();

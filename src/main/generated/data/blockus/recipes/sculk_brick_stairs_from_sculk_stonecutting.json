@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "minecraft:sculk"
-  },
-  "result": "blockus:sculk_brick_stairs"
-}

@@ -1,116 +1,186 @@
 {
   "replace": false,
   "values": [
-    "blockus:netherite_stairs",
-    "blockus:netherite_slab",
     "blockus:charcoal_block",
-    "blockus:ender_block",
     "blockus:nether_stars_block",
-    "blockus:love_block",
     "blockus:weight_storage_cube",
     "blockus:companion_cube",
     "blockus:caution_block",
     "blockus:stars_block",
-    "blockus:legacy_bricks",
-    "blockus:legacy_first_cobblestone",
-    "blockus:legacy_cobblestone",
-    "blockus:legacy_mossy_cobblestone",
-    "blockus:legacy_iron_block",
-    "blockus:legacy_gold_block",
-    "blockus:legacy_coal_block",
-    "blockus:legacy_explosion_proof_gold_block",
-    "blockus:legacy_diamond_block",
-    "blockus:legacy_lapis_block",
-    "blockus:legacy_stonecutter",
-    "blockus:legacy_nether_reactor_core",
-    "blockus:golden_bars",
-    "blockus:golden_chain",
-    "blockus:golden_gate",
-    "blockus:iron_gate",
     "blockus:lantern_block",
     "blockus:soul_lantern_block",
-    "blockus:redstone_lantern_block",
-    "blockus:redstone_lantern",
     "blockus:crimson_wart_bricks",
-    "blockus:crimson_wart_brick_stairs",
-    "blockus:crimson_wart_brick_slab",
     "blockus:warped_wart_bricks",
-    "blockus:warped_wart_brick_stairs",
-    "blockus:warped_wart_brick_slab",
-    "blockus:nether_tiles",
-    "blockus:nether_tile_stairs",
-    "blockus:nether_tile_slab",
     "blockus:end_tiles",
-    "blockus:end_tile_stairs",
-    "blockus:end_tile_slab",
     "blockus:chiseled_mud_bricks",
     "blockus:mud_brick_pillar",
-    "blockus:iron_bricks",
-    "blockus:iron_brick_stairs",
-    "blockus:iron_brick_slab",
-    "blockus:gold_bricks",
-    "blockus:gold_brick_stairs",
-    "blockus:gold_brick_slab",
-    "blockus:lapis_bricks",
-    "blockus:lapis_brick_stairs",
-    "blockus:lapis_brick_slab",
-    "blockus:redstone_bricks",
-    "blockus:redstone_brick_stairs",
-    "blockus:redstone_brick_slab",
-    "blockus:emerald_bricks",
-    "blockus:emerald_brick_stairs",
-    "blockus:emerald_brick_slab",
-    "blockus:diamond_bricks",
-    "blockus:diamond_brick_stairs",
-    "blockus:diamond_brick_slab",
-    "blockus:netherite_bricks",
-    "blockus:netherite_brick_stairs",
-    "blockus:netherite_brick_slab",
-    "#blockus:amethyst_blocks",
-    "#blockus:obsidian",
-    "#blockus:stained_stone_bricks",
-    "#blockus:marble",
-    "#blockus:limestone",
-    "#blockus:bluestone",
-    "#blockus:viridite",
-    "#blockus:purpur_blocks",
-    "#blockus:quartz_blocks",
-    "#blockus:sandstone",
-    "#blockus:red_sandstone",
-    "#blockus:soul_sandstone",
-    "#blockus:stone_blocks",
-    "#blockus:andesite_blocks",
-    "#blockus:diorite_blocks",
-    "#blockus:granite_blocks",
-    "#blockus:blackstone_blocks",
-    "#blockus:basalt_blocks",
-    "#blockus:lava_bricks",
-    "#blockus:lava_polished_blackstone_bricks",
-    "#blockus:water_bricks",
-    "#blockus:snow_bricks",
-    "#blockus:ice_bricks",
-    "#blockus:magma_bricks",
-    "#blockus:blaze_bricks",
-    "#blockus:netherrack_blocks",
-    "#blockus:nether_bricks",
-    "#blockus:prismarine_blocks",
-    "#blockus:bricks_blocks",
-    "#blockus:honeycomb_blocks",
-    "#blockus:end_stone_blocks",
-    "#blockus:rainbow_blocks",
-    "#blockus:concrete_blocks",
-    "#blockus:deepslate_blocks",
-    "#blockus:sculk_blocks",
-    "#blockus:tuff_blocks",
-    "#blockus:dripstone_blocks",
-    "#blockus:chocolate_blocks",
-    "#blockus:asphalt",
-    "#blockus:shingles",
-    "#blockus:colored_tiles",
-    "#blockus:glazed_terracotta_pillars",
-    "#blockus:platings",
-    "#blockus:large_flower_pots",
-    "#minecraft:stone_pressure_plates",
-    "blockus:obsidian_pressure_plate"
+    {
+      "id": "#blockus:amethyst_blocks",
+      "required": false
+    },
+    {
+      "id": "#blockus:obsidian",
+      "required": false
+    },
+    {
+      "id": "#blockus:stained_stone_bricks",
+      "required": false
+    },
+    {
+      "id": "#blockus:marble",
+      "required": false
+    },
+    {
+      "id": "#blockus:limestone",
+      "required": false
+    },
+    {
+      "id": "#blockus:bluestone",
+      "required": false
+    },
+    {
+      "id": "#blockus:viridite",
+      "required": false
+    },
+    {
+      "id": "#blockus:purpur_blocks",
+      "required": false
+    },
+    {
+      "id": "#blockus:quartz_blocks",
+      "required": false
+    },
+    {
+      "id": "#blockus:sandstone",
+      "required": false
+    },
+    {
+      "id": "#blockus:red_sandstone",
+      "required": false
+    },
+    {
+      "id": "#blockus:soul_sandstone",
+      "required": false
+    },
+    {
+      "id": "#blockus:stone_blocks",
+      "required": false
+    },
+    {
+      "id": "#blockus:andesite_blocks",
+      "required": false
+    },
+    {
+      "id": "#blockus:diorite_blocks",
+      "required": false
+    },
+    {
+      "id": "#blockus:granite_blocks",
+      "required": false
+    },
+    {
+      "id": "#blockus:blackstone_blocks",
+      "required": false
+    },
+    {
+      "id": "#blockus:basalt_blocks",
+      "required": false
+    },
+    {
+      "id": "#blockus:lava_bricks",
+      "required": false
+    },
+    {
+      "id": "#blockus:lava_polished_blackstone_bricks",
+      "required": false
+    },
+    {
+      "id": "#blockus:water_bricks",
+      "required": false
+    },
+    {
+      "id": "#blockus:snow_bricks",
+      "required": false
+    },
+    {
+      "id": "#blockus:ice_bricks",
+      "required": false
+    },
+    {
+      "id": "#blockus:magma_bricks",
+      "required": false
+    },
+    {
+      "id": "#blockus:blaze_bricks",
+      "required": false
+    },
+    {
+      "id": "#blockus:netherrack_blocks",
+      "required": false
+    },
+    {
+      "id": "#blockus:nether_bricks",
+      "required": false
+    },
+    {
+      "id": "#blockus:prismarine_blocks",
+      "required": false
+    },
+    {
+      "id": "#blockus:bricks_blocks",
+      "required": false
+    },
+    {
+      "id": "#blockus:honeycomb_blocks",
+      "required": false
+    },
+    {
+      "id": "#blockus:end_stone_blocks",
+      "required": false
+    },
+    {
+      "id": "#blockus:rainbow_blocks",
+      "required": false
+    },
+    {
+      "id": "#blockus:concrete_blocks",
+      "required": false
+    },
+    {
+      "id": "#blockus:deepslate_blocks",
+      "required": false
+    },
+    {
+      "id": "#blockus:sculk_blocks",
+      "required": false
+    },
+    {
+      "id": "#blockus:tuff_blocks",
+      "required": false
+    },
+    {
+      "id": "#blockus:dripstone_blocks",
+      "required": false
+    },
+    {
+      "id": "#blockus:chocolate_blocks",
+      "required": false
+    },
+    {
+      "id": "#blockus:asphalt",
+      "required": false
+    },
+    {
+      "id": "#blockus:shingles",
+      "required": false
+    },
+    {
+      "id": "#blockus:colored_tiles",
+      "required": false
+    },
+    {
+      "id": "#blockus:platings",
+      "required": false
+    }
   ]
 }

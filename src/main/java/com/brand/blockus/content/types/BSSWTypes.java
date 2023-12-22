@@ -15,9 +15,6 @@ public class BSSWTypes {
     public static final ArrayList<BSSWTypes> LIST = new ArrayList<>();
 
     public final Block block;
-    public final Block slab;
-    public final Block stairs;
-    public final Block wall;
 
     public BSSWTypes(String type, Block.Settings blockSettings) {
         Block blockInstance;
@@ -31,10 +28,6 @@ public class BSSWTypes {
         }
 
         this.block = BlocksRegistration.register(type, blockInstance);
-        this.slab = BlocksRegistration.registerSlab(this.block);
-        this.stairs = BlocksRegistration.registerStairs(this.block);
-        this.wall = BlocksRegistration.registerWall(this.block);
-
         LIST.add(this);
     }
 

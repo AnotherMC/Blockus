@@ -1,8 +1,14 @@
 {
   "replace": false,
   "values": [
-    "#blockus:netherrack_blocks",
-    "#blockus:magma_bricks",
+    {
+      "id": "#blockus:netherrack_blocks",
+      "required": false
+    },
+    {
+      "id": "#blockus:magma_bricks",
+      "required": false
+    },
     "blockus:charcoal_block"
   ]
 }

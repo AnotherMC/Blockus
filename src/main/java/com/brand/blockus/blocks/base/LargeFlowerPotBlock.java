@@ -57,7 +57,7 @@ public class LargeFlowerPotBlock extends FlowerPotBlock {
                     player.dropItem(itemStack2, false);
                 }
 
-                world.setBlockState(pos, BlockusBlocks.LARGE_FLOWER_POT.getDefaultState(), 3);
+                //world.setBlockState(pos, BlockusBlocks.LARGE_FLOWER_POT.getDefaultState(), 3);
             }
 
             world.emitGameEvent(player, GameEvent.BLOCK_CHANGE, pos);

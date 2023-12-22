@@ -9,7 +9,6 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 
 public class BlockusItems {
-
     public static final Item RAINBOW_PETAL = register("rainbow_petal", new Item(new Item.Settings().maxCount(64)));
 
 

@@ -1,6 +1,9 @@
 {
   "replace": false,
   "values": [
-    "#blockus:amethyst_blocks"
+    {
+      "id": "#blockus:amethyst_blocks",
+      "required": false
+    }
   ]
 }

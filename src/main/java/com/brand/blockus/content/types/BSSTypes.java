@@ -13,8 +13,6 @@ public class BSSTypes {
     public static final ArrayList<BSSTypes> LIST = new ArrayList<>();
 
     public final Block block;
-    public final Block slab;
-    public final Block stairs;
     public final String type;
     public Block base;
 
@@ -29,8 +27,6 @@ public class BSSTypes {
         }
 
         this.block = BlocksRegistration.register(type, blockInstance);
-        this.slab = BlocksRegistration.registerSlab(this.block);
-        this.stairs = BlocksRegistration.registerStairs(this.block);
 
         LIST.add(this);
     }

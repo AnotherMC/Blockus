@@ -1,7 +1,13 @@
 {
   "replace": false,
   "values": [
-    "#blockus:soul_sandstone",
-    "#blockus:phantom_purpur_blocks"
+    {
+      "id": "#blockus:soul_sandstone",
+      "required": false
+    },
+    {
+      "id": "#blockus:phantom_purpur_blocks",
+      "required": false
+    }
   ]
 }

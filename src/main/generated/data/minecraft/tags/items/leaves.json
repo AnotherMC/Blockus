@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "blockus:white_oak_leaves",
-    "blockus:legacy_leaves"
+    "blockus:white_oak_leaves"
   ]
 }

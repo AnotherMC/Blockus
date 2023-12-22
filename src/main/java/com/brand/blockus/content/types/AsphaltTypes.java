@@ -15,8 +15,6 @@ public class AsphaltTypes {
     private static final ArrayList<AsphaltTypes> LIST = new ArrayList<>();
 
     public final Block block;
-    public final Block slab;
-    public final Block stairs;
 
     public AsphaltTypes(DyeColor color) {
         String type = color.getName() + "_asphalt";
@@ -25,8 +23,6 @@ public class AsphaltTypes {
         Block.Settings blockSettings = FabricBlockSettings.create().mapColor(color).instrument(Instrument.BASEDRUM).strength(1.5f, 6.0f).requiresTool();
 
         this.block = BlocksRegistration.register(type2, new AsphaltBlock(blockSettings));
-        this.slab = BlocksRegistration.register(type2 + "_slab", new AsphaltSlab(FabricBlockSettings.copyOf(block)));
-        this.stairs = BlocksRegistration.register(type2 + "_stairs", new AsphaltStairs(block.getDefaultState(), FabricBlockSettings.copyOf(block)));
 
         LIST.add(this);
     }

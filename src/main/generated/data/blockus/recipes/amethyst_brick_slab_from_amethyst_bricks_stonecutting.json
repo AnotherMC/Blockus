@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 2,
-  "ingredient": {
-    "item": "blockus:amethyst_bricks"
-  },
-  "result": "blockus:amethyst_brick_slab"
-}

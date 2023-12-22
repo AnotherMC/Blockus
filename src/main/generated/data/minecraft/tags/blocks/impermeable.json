@@ -1,7 +1,9 @@
 {
   "replace": false,
   "values": [
-    "#blockus:beveled_glass",
-    "#blockus:neon"
+    {
+      "id": "#blockus:neon",
+      "required": false
+    }
   ]
 }

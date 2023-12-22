@@ -2,7 +2,6 @@ package com.brand.blockus.itemgroups;
 
 import com.brand.blockus.Blockus;
 import com.brand.blockus.content.BlockusBlocks;
-import com.brand.blockus.content.types.ColoredTilesTypes;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -27,17 +26,12 @@ public class BlockusItemGroups {
     public static void init() {
         Registry.register(Registries.ITEM_GROUP, BLOCKUS_BUILDING_BLOCKS, FabricItemGroup.builder()
             .displayName(Text.translatable("itemGroup.blockus_building_blocks").append(BLOCKUS_GROUPS_TEXT))
-            .icon(() -> new ItemStack(BlockusBlocks.BLAZE_BRICKS.block))
+            .icon(() -> new ItemStack(BlockusBlocks.BLUESTONE_BRICKS.block))
             .build()
         );
         Registry.register(Registries.ITEM_GROUP, BLOCKUS_COLORED_BLOCKS, FabricItemGroup.builder()
             .displayName(Text.translatable("itemGroup.blockus_colored").append(BLOCKUS_GROUPS_TEXT))
             .icon(() -> new ItemStack(BlockusBlocks.LIME_ASPHALT.block))
-            .build()
-        );
-        Registry.register(Registries.ITEM_GROUP, BLOCKUS_COLORED_TILES, FabricItemGroup.builder()
-            .displayName(Text.translatable("itemGroup.blockus_colored_tiles").append(BLOCKUS_GROUPS_TEXT))
-            .icon(() -> new ItemStack(ColoredTilesTypes.RED_BLUE_COLORED_TILES.block))
             .build()
         );
         Registry.register(Registries.ITEM_GROUP, BLOCKUS_NATURAL, FabricItemGroup.builder()
@@ -47,12 +41,7 @@ public class BlockusItemGroups {
         );
         Registry.register(Registries.ITEM_GROUP, BLOCKUS_FUNCTIONAL_BLOCKS, FabricItemGroup.builder()
             .displayName(Text.translatable("itemGroup.blockus_functional").append(BLOCKUS_GROUPS_TEXT))
-            .icon(() -> new ItemStack(BlockusBlocks.REDSTONE_LANTERN))
-            .build()
-        );
-        Registry.register(Registries.ITEM_GROUP, BLOCKUS_LEGACY_BLOCKS, FabricItemGroup.builder()
-            .displayName(Text.translatable("itemGroup.blockus_legacy").append(BLOCKUS_GROUPS_TEXT))
-            .icon(() -> new ItemStack(BlockusBlocks.LEGACY_BRICKS))
+            .icon(() -> new ItemStack(BlockusBlocks.LANTERN_BLOCK))
             .build()
         );
     }

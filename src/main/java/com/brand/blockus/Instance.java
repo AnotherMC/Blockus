@@ -2,7 +2,6 @@ package com.brand.blockus;
 
 import com.brand.blockus.content.BlockusBlocks;
 import com.brand.blockus.content.BlockusItems;
-import com.brand.blockus.content.types.WoolTypes;
 import com.brand.blockus.content.types.TimberFrameTypes;
 import com.brand.blockus.content.types.WoodTypes;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
@@ -25,41 +24,21 @@ public class Instance {
 // Burning
 
         // general		
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.WOODEN_FRAME, 30, 60);
         FuelRegistry.INSTANCE.add(Items.DRIED_KELP, 200);
-        FuelRegistry.INSTANCE.add(BlockusBlocks.LEGACY_COAL_BLOCK, 16000);
         FuelRegistry.INSTANCE.add(BlockusBlocks.CHARCOAL_BLOCK, 16000);
-        FuelRegistry.INSTANCE.add(BlockusBlocks.WOODEN_FRAME, 300);
-
-        // small hedges
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.OAK_SMALL_HEDGE, 30, 60);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.ACACIA_SMALL_HEDGE, 30, 60);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.BIRCH_SMALL_HEDGE, 30, 60);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.DARK_OAK_SMALL_HEDGE, 30, 60);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.JUNGLE_SMALL_HEDGE, 30, 60);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.SPRUCE_SMALL_HEDGE, 30, 60);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.MANGROVE_SMALL_HEDGE, 30, 60);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.WHITE_OAK_SMALL_HEDGE, 30, 60);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.AZALEA_SMALL_HEDGE, 30, 60);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.FLOWERING_AZALEA_SMALL_HEDGE, 30, 60);
 
         // paper
         FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.FRAMED_PAPER_BLOCK, 30, 60);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.PAPER_WALL, 30, 60);
         FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.PAPER_BLOCK, 30, 60);
         FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.BURNT_PAPER_BLOCK, 5, 60);
         FuelRegistry.INSTANCE.add(Items.PAPER, 100);
-        FuelRegistry.INSTANCE.add(BlockusBlocks.PAPER_DOOR, 100);
-        FuelRegistry.INSTANCE.add(BlockusBlocks.PAPER_TRAPDOOR, 150);
         FuelRegistry.INSTANCE.add(BlockusBlocks.FRAMED_PAPER_BLOCK, 300);
-        FuelRegistry.INSTANCE.add(BlockusBlocks.PAPER_WALL, 150);
         FuelRegistry.INSTANCE.add(BlockusBlocks.PAPER_LAMP, 300);
         FuelRegistry.INSTANCE.add(BlockusBlocks.PAPER_BLOCK, 400);
 
         // thatch
         FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.THATCH.block, 60, 20);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.THATCH.slab, 60, 20);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.THATCH.stairs, 60, 20);
+
 
         // timber frames
         for (TimberFrameTypes timberFrameType : TimberFrameTypes.values()) {
@@ -71,26 +50,13 @@ public class Instance {
             }
         }
 
-        // patterned wools
-        for (WoolTypes woolTypes : WoolTypes.values()) {
-            FlammableBlockRegistry.getDefaultInstance().add(woolTypes.block, 30, 60);
-            FlammableBlockRegistry.getDefaultInstance().add(woolTypes.stairs, 30, 60);
-            FlammableBlockRegistry.getDefaultInstance().add(woolTypes.slab, 30, 60);
-            FlammableBlockRegistry.getDefaultInstance().add(woolTypes.carpet, 60, 20);
-            FuelRegistry.INSTANCE.add(woolTypes.stairs, 100);
-            FuelRegistry.INSTANCE.add(woolTypes.slab, 50);
-        }
 
         // wood
         for (WoodTypes woodType : WoodTypes.values()) {
             if (woodType.isBurnable()) {
                 FlammableBlockRegistry.getDefaultInstance().add(woodType.planks, 5, 20);
-                FlammableBlockRegistry.getDefaultInstance().add(woodType.stairs, 5, 20);
-                FlammableBlockRegistry.getDefaultInstance().add(woodType.slab, 5, 20);
-                FlammableBlockRegistry.getDefaultInstance().add(woodType.fence, 5, 20);
-                FlammableBlockRegistry.getDefaultInstance().add(woodType.fence_gate, 5, 20);
-                FuelRegistry.INSTANCE.add(woodType.fence, 300);
-                FuelRegistry.INSTANCE.add(woodType.fence_gate, 300);
+
+
             }
         }
 
@@ -102,30 +68,20 @@ public class Instance {
         FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.WHITE_OAK_LEAVES, 30, 60);
 
         // mosaic
-        Block[][] woodenMosaics = {
-            {BlockusBlocks.OAK_MOSAIC.block, BlockusBlocks.OAK_MOSAIC.stairs, BlockusBlocks.OAK_MOSAIC.slab},
-            {BlockusBlocks.BIRCH_MOSAIC.block, BlockusBlocks.BIRCH_MOSAIC.stairs, BlockusBlocks.BIRCH_MOSAIC.slab},
-            {BlockusBlocks.SPRUCE_MOSAIC.block, BlockusBlocks.SPRUCE_MOSAIC.stairs, BlockusBlocks.SPRUCE_MOSAIC.slab},
-            {BlockusBlocks.JUNGLE_MOSAIC.block, BlockusBlocks.JUNGLE_MOSAIC.stairs, BlockusBlocks.JUNGLE_MOSAIC.slab},
-            {BlockusBlocks.ACACIA_MOSAIC.block, BlockusBlocks.ACACIA_MOSAIC.stairs, BlockusBlocks.ACACIA_MOSAIC.slab},
-            {BlockusBlocks.DARK_OAK_MOSAIC.block, BlockusBlocks.DARK_OAK_MOSAIC.stairs, BlockusBlocks.DARK_OAK_MOSAIC.slab},
-            {BlockusBlocks.MANGROVE_MOSAIC.block, BlockusBlocks.MANGROVE_MOSAIC.stairs, BlockusBlocks.MANGROVE_MOSAIC.slab},
-            {BlockusBlocks.WHITE_OAK_MOSAIC.block, BlockusBlocks.WHITE_OAK_MOSAIC.stairs, BlockusBlocks.WHITE_OAK_MOSAIC.slab},
-            {BlockusBlocks.RAW_BAMBOO_MOSAIC.block, BlockusBlocks.RAW_BAMBOO_MOSAIC.stairs, BlockusBlocks.RAW_BAMBOO_MOSAIC.slab},
-            {BlockusBlocks.CHERRY_MOSAIC.block, BlockusBlocks.CHERRY_MOSAIC.stairs, BlockusBlocks.CHERRY_MOSAIC.slab}
-        };
+        Block[][] woodenMosaics = {{}, {}, {}, {}, {}, {}, {}, {}, {}, {}};
 
         for (Block[] blocks : woodenMosaics) {
+            if (blocks.length == 0) {
+                continue;
+            }
             Block block = blocks[0];
-            Block stairs = blocks[1];
-            Block slab = blocks[2];
 
             FlammableBlockRegistry.getDefaultInstance().add(block, 5, 20);
-            FlammableBlockRegistry.getDefaultInstance().add(stairs, 5, 20);
-            FlammableBlockRegistry.getDefaultInstance().add(slab, 5, 20);
+
+
             FuelRegistry.INSTANCE.add(block, 300);
-            FuelRegistry.INSTANCE.add(stairs, 300);
-            FuelRegistry.INSTANCE.add(slab, 150);
+
+
         }
 
         // herringbone planks
@@ -139,43 +95,25 @@ public class Instance {
         FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.HERRINGBONE_WHITE_OAK_PLANKS, 5, 20);
         FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.HERRINGBONE_BAMBOO_PLANKS, 5, 20);
 
-        // small logs		
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.OAK_SMALL_LOGS, 5, 5);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.BIRCH_SMALL_LOGS, 5, 5);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.SPRUCE_SMALL_LOGS, 5, 5);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.JUNGLE_SMALL_LOGS, 5, 5);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.ACACIA_SMALL_LOGS, 5, 5);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.DARK_OAK_SMALL_LOGS, 5, 5);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.MANGROVE_SMALL_LOGS, 5, 5);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.WHITE_OAK_SMALL_LOGS, 5, 5);
-
         // legacy
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.LEGACY_LOG, 5, 5);
+
 
 // Composting
-        CompostingChanceRegistry.INSTANCE.add(BlockusBlocks.OAK_SMALL_HEDGE, 0.30f);
-        CompostingChanceRegistry.INSTANCE.add(BlockusBlocks.ACACIA_SMALL_HEDGE, 0.30f);
-        CompostingChanceRegistry.INSTANCE.add(BlockusBlocks.BIRCH_SMALL_HEDGE, 0.30f);
-        CompostingChanceRegistry.INSTANCE.add(BlockusBlocks.DARK_OAK_SMALL_HEDGE, 0.30f);
-        CompostingChanceRegistry.INSTANCE.add(BlockusBlocks.JUNGLE_SMALL_HEDGE, 0.30f);
-        CompostingChanceRegistry.INSTANCE.add(BlockusBlocks.SPRUCE_SMALL_HEDGE, 0.30f);
-        CompostingChanceRegistry.INSTANCE.add(BlockusBlocks.MANGROVE_SMALL_HEDGE, 0.30f);
-        CompostingChanceRegistry.INSTANCE.add(BlockusBlocks.AZALEA_SMALL_HEDGE, 0.30f);
-        CompostingChanceRegistry.INSTANCE.add(BlockusBlocks.WHITE_OAK_SMALL_HEDGE, 0.30f);
+
+
         CompostingChanceRegistry.INSTANCE.add(BlockusBlocks.WHITE_OAK_LEAVES, 0.30f);
         CompostingChanceRegistry.INSTANCE.add(BlockusBlocks.WHITE_OAK_SAPLING, 0.30f);
-        CompostingChanceRegistry.INSTANCE.add(BlockusBlocks.LEGACY_SAPLING, 0.30f);
+
         CompostingChanceRegistry.INSTANCE.add(BlockusItems.RAINBOW_PETAL, 0.30f);
         CompostingChanceRegistry.INSTANCE.add(Items.BAMBOO, 0.50f);
         CompostingChanceRegistry.INSTANCE.add(BlockusBlocks.SWEET_BERRIES_CRATE, 0.50f);
-        CompostingChanceRegistry.INSTANCE.add(BlockusBlocks.FLOWERING_AZALEA_SMALL_HEDGE, 0.50f);
-        CompostingChanceRegistry.INSTANCE.add(BlockusBlocks.MOSS_SMALL_HEDGE, 0.65f);
+
+
         CompostingChanceRegistry.INSTANCE.add(BlockusBlocks.RAINBOW_ROSE, 0.65f);
-        CompostingChanceRegistry.INSTANCE.add(BlockusBlocks.THATCH.slab, 0.65f);
+
         CompostingChanceRegistry.INSTANCE.add(BlockusBlocks.THATCH.block, 0.75f);
-        CompostingChanceRegistry.INSTANCE.add(BlockusBlocks.THATCH.stairs, 0.75f);
-        CompostingChanceRegistry.INSTANCE.add(BlockusBlocks.WARPED_SMALL_HEDGE, 0.85f);
-        CompostingChanceRegistry.INSTANCE.add(BlockusBlocks.CRIMSON_SMALL_HEDGE, 0.85f);
+
+
         CompostingChanceRegistry.INSTANCE.add(BlockusBlocks.APPLE_CRATE, 0.95f);
         CompostingChanceRegistry.INSTANCE.add(BlockusBlocks.BEETROOT_CRATE, 0.95f);
         CompostingChanceRegistry.INSTANCE.add(BlockusBlocks.CARROT_CRATE, 0.95f);
@@ -204,7 +142,7 @@ public class Instance {
 
     public static void addTradeOffers() {
         TradeOfferHelper.registerWanderingTraderOffers(1, factories -> {
-            factories.add(new SellItemFactory(BlockusBlocks.LEGACY_SAPLING, 5, 1, 8));
+
             factories.add(new SellItemFactory(BlockusBlocks.WHITE_OAK_SAPLING, 5, 1, 8));
             factories.add(new SellItemFactory(BlockusItems.RAINBOW_PETAL, 1, 3, 12));
             factories.add(new SellItemFactory(BlockusBlocks.RAINBOW_ROSE, 1, 1, 12));

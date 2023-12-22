@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "blockus:crimson_wart_bricks"
-  },
-  "result": "blockus:crimson_wart_brick_wall"
-}

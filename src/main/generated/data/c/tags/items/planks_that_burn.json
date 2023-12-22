@@ -10,9 +10,7 @@
     "minecraft:mangrove_planks",
     "minecraft:cherry_planks",
     "minecraft:bamboo_planks",
-    "blockus:raw_bamboo_planks",
     "blockus:white_oak_planks",
-    "blockus:legacy_planks",
     "blockus:herringbone_oak_planks",
     "blockus:herringbone_birch_planks",
     "blockus:herringbone_spruce_planks",
@@ -22,7 +20,6 @@
     "blockus:herringbone_mangrove_planks",
     "blockus:herringbone_cherry_planks",
     "blockus:herringbone_bamboo_planks",
-    "blockus:herringbone_white_oak_planks",
-    "blockus:herringbone_raw_bamboo_planks"
+    "blockus:herringbone_white_oak_planks"
   ]
 }

@@ -22,20 +22,6 @@ public class NaturalGroup {
                 entries.add(BlockusPromenadeBlocks.WHITE_OAK_LEAF_PILE);
             }*/
 
-            entries.add(BlockusBlocks.OAK_SMALL_HEDGE);
-            entries.add(BlockusBlocks.SPRUCE_SMALL_HEDGE);
-            entries.add(BlockusBlocks.BIRCH_SMALL_HEDGE);
-            entries.add(BlockusBlocks.JUNGLE_SMALL_HEDGE);
-            entries.add(BlockusBlocks.ACACIA_SMALL_HEDGE);
-            entries.add(BlockusBlocks.DARK_OAK_SMALL_HEDGE);
-            entries.add(BlockusBlocks.MANGROVE_SMALL_HEDGE);
-            entries.add(BlockusBlocks.CHERRY_SMALL_HEDGE);
-            entries.add(BlockusBlocks.WHITE_OAK_SMALL_HEDGE);
-            entries.add(BlockusBlocks.CRIMSON_SMALL_HEDGE);
-            entries.add(BlockusBlocks.WARPED_SMALL_HEDGE);
-            entries.add(BlockusBlocks.AZALEA_SMALL_HEDGE);
-            entries.add(BlockusBlocks.FLOWERING_AZALEA_SMALL_HEDGE);
-            entries.add(BlockusBlocks.MOSS_SMALL_HEDGE);
 /*            if (FabricLoader.getInstance().isModLoaded("promenade")) {
                 entries.add(BlockusPromenadeBlocks.SAP_MAPLE_SMALL_HEDGE);
                 entries.add(BlockusPromenadeBlocks.VERMILION_MAPLE_SMALL_HEDGE);
