@@ -15,9 +15,11 @@ public class BSSWTypes {
     public static final ArrayList<BSSWTypes> LIST = new ArrayList<>();
 
     public final Block block;
+    public final String type;
 
     public BSSWTypes(String type, Block.Settings blockSettings) {
         Block blockInstance;
+        this.type = type;
 
         if (BlocksRegistration.isAmethyst(type)) {
             blockInstance = new AmethystBlock(FabricBlockSettings.copyOf(blockSettings));

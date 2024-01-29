@@ -1,2 +1,2 @@
-* Fixed [Rough red sandstone bug](https://github.com/Brandcraf06/Blockus/issues/320)
+* Fixed wrong Soul Sandstone, Cut Soul Sandstone & Chiseled Soul Sandstone top & bottom textures
 

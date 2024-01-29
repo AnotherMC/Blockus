@@ -252,12 +252,27 @@ public class BlockusBlocks extends BlocksRegistration {
     public static final Block HERRINGBONE_JUNGLE_PLANKS = register("herringbone_jungle_planks", createCopy(Blocks.JUNGLE_PLANKS));
     public static final Block HERRINGBONE_ACACIA_PLANKS = register("herringbone_acacia_planks", createCopy(Blocks.ACACIA_PLANKS));
     public static final Block HERRINGBONE_DARK_OAK_PLANKS = register("herringbone_dark_oak_planks", createCopy(Blocks.DARK_OAK_PLANKS));
-    public static final Block HERRINGBONE_CHERRY_PLANKS = register("herringbone_cherry_planks", createCopy(Blocks.MANGROVE_PLANKS));
+    public static final Block HERRINGBONE_CHERRY_PLANKS = register("herringbone_cherry_planks", createCopy(Blocks.CHERRY_PLANKS));
     public static final Block HERRINGBONE_MANGROVE_PLANKS = register("herringbone_mangrove_planks", createCopy(Blocks.MANGROVE_PLANKS));
     public static final Block HERRINGBONE_BAMBOO_PLANKS = register("herringbone_bamboo_planks", createCopy(Blocks.BAMBOO_PLANKS));
     public static final Block HERRINGBONE_WHITE_OAK_PLANKS = register("herringbone_white_oak_planks", createCopy(WHITE_OAK.planks));
     public static final Block HERRINGBONE_WARPED_PLANKS = register("herringbone_warped_planks", createCopy(Blocks.WARPED_PLANKS));
     public static final Block HERRINGBONE_CRIMSON_PLANKS = register("herringbone_crimson_planks", createCopy(Blocks.CRIMSON_PLANKS));
+
+    public static final BSSTypes MOSSY_OAK_PLANKS = new BSSTypes("mossy_oak_planks", Blocks.OAK_PLANKS);
+    public static final BSSTypes MOSSY_SPRUCE_PLANKS = new BSSTypes("mossy_spruce_planks", Blocks.SPRUCE_PLANKS);
+    public static final BSSTypes MOSSY_BIRCH_PLANKS = new BSSTypes("mossy_birch_planks", Blocks.BIRCH_PLANKS);
+    public static final BSSTypes MOSSY_JUNGLE_PLANKS = new BSSTypes("mossy_jungle_planks", Blocks.JUNGLE_PLANKS);
+    public static final BSSTypes MOSSY_ACACIA_PLANKS = new BSSTypes("mossy_acacia_planks", Blocks.ACACIA_PLANKS);
+    public static final BSSTypes MOSSY_DARK_OAK_PLANKS = new BSSTypes("mossy_dark_oak_planks", Blocks.DARK_OAK_PLANKS);
+    public static final BSSTypes MOSSY_CHERRY_PLANKS = new BSSTypes("mossy_cherry_planks", Blocks.CHERRY_PLANKS);
+    public static final BSSTypes MOSSY_MANGROVE_PLANKS = new BSSTypes("mossy_mangrove_planks", Blocks.MANGROVE_PLANKS);
+    public static final BSSTypes MOSSY_BAMBOO_PLANKS = new BSSTypes("mossy_bamboo_planks", Blocks.BAMBOO_PLANKS);
+    public static final BSSTypes MOSSY_RAW_BAMBOO_PLANKS = new BSSTypes("mossy_raw_bamboo_planks", RAW_BAMBOO.planks);
+    public static final BSSTypes MOSSY_WHITE_OAK_PLANKS = new BSSTypes("mossy_white_oak_planks", WHITE_OAK.planks);
+    public static final BSSTypes MOSSY_WARPED_PLANKS = new BSSTypes("mossy_warped_planks", Blocks.WARPED_PLANKS);
+    public static final BSSTypes MOSSY_CRIMSON_PLANKS = new BSSTypes("mossy_crimson_planks", Blocks.CRIMSON_PLANKS);
+    public static final BSSTypes MOSSY_CHARRED_PLANKS = new BSSTypes("mossy_charred_planks", CHARRED.planks);
 
     // Food Blocks
     public static final Block SWEET_BERRIES_CRATE = register("sweet_berries_crate", createCrates());
@@ -324,7 +339,7 @@ public class BlockusBlocks extends BlocksRegistration {
     // Plating
     public static final BSSTypes IRON_PLATING = new BSSTypes("iron_plating", Blocks.IRON_BLOCK, MapColor.STONE_GRAY);
     public static final BSSTypes GOLD_PLATING = new BSSTypes("gold_plating", Blocks.GOLD_BLOCK);
-    
+
     // Lantern Blocks
     public static final Block LANTERN_BLOCK = register("lantern_block", createCopy(Blocks.LANTERN));
     public static final Block SOUL_LANTERN_BLOCK = register("soul_lantern_block", createCopy(Blocks.SOUL_LANTERN));
@@ -342,7 +357,7 @@ public class BlockusBlocks extends BlocksRegistration {
     public static final Block COMPANION_CUBE = register("companion_cube", createFallingBlock(0.1f, 6.0f, BlockSoundGroup.STONE, MapColor.IRON_GRAY));
     public static final Block CAUTION_BLOCK = register("caution_block", new Block(FabricBlockSettings.create().mapColor(MapColor.ORANGE).strength(1.5f, 1200.0f).requiresTool()));
     public static final Block STARS_BLOCK = register("stars_block", new Block(FabricBlockSettings.create().mapColor(MapColor.BLACK).strength(5.0f, 6.0f)));
-    
+
     // Colored Tiles
     /**
      * <p>Bicolor variants in {@link ColoredTilesTypes}.

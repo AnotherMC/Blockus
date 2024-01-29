@@ -12,10 +12,11 @@ import net.minecraft.block.Blocks;
 import net.minecraft.data.client.*;
 import net.minecraft.data.family.BlockFamily;
 import net.minecraft.item.Item;
-import net.minecraft.registry.Registries;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
+
+import static net.minecraft.registry.Registries.BLOCK;
 
 public class BlockusModelProvider extends FabricModelProvider {
 
@@ -41,7 +42,11 @@ public class BlockusModelProvider extends FabricModelProvider {
         }
 
         for (BSSWTypes bsswType : BSSWTypes.values()) {
-            this.registerBlockStairsSlabAndWall(modelGenerator, bsswType.block);
+            if (bsswType.block == BlockusBlocks.SOUL_SANDSTONE.block) {
+                this.registerBlockStairsSlabwithTopBottom(modelGenerator, bsswType.block, bsswType.stairs, bsswType.slab);
+            } else {
+                this.registerBlockStairsSlabAndWall(modelGenerator, bsswType.block);
+            }
         }
 
         for (ConcreteTypes concreteType : ConcreteTypes.values()) {
@@ -182,6 +187,14 @@ public class BlockusModelProvider extends FabricModelProvider {
         this.registerPillar(modelGenerator, BlockusBlocks.RED_SANDSTONE_PILLAR);
         this.registerCubeColumn(modelGenerator, BlockusBlocks.GOLD_DECORATED_RED_SANDSTONE, Blocks.RED_SANDSTONE);
         this.registerCubeColumn(modelGenerator, BlockusBlocks.LAPIS_DECORATED_RED_SANDSTONE, Blocks.RED_SANDSTONE);
+
+        // Soul Sandstone
+        this.registerCubeColumn(modelGenerator, BlockusBlocks.CHISELED_SOUL_SANDSTONE, BlockusBlocks.SOUL_SANDSTONE.block);
+        this.registerCubeColumn(modelGenerator, BlockusBlocks.CUT_SOUL_SANDSTONE, BlockusBlocks.SOUL_SANDSTONE.block);
+        this.registerSlabwithTop(modelGenerator, BlockusBlocks.CUT_SOUL_SANDSTONE_SLAB, BlockusBlocks.CUT_SOUL_SANDSTONE, BlockusBlocks.SOUL_SANDSTONE.block);
+        this.registerPillar(modelGenerator, BlockusBlocks.SOUL_SANDSTONE_PILLAR);
+        this.registerCubeColumn(modelGenerator, BlockusBlocks.GOLD_DECORATED_SOUL_SANDSTONE, BlockusBlocks.SOUL_SANDSTONE.block);
+        this.registerCubeColumn(modelGenerator, BlockusBlocks.LAPIS_DECORATED_SOUL_SANDSTONE, BlockusBlocks.SOUL_SANDSTONE.block);
 
         // Rainbow
         this.registerLines(modelGenerator, BlockusBlocks.RAINBOW_BLOCK);
@@ -351,6 +364,13 @@ public class BlockusModelProvider extends FabricModelProvider {
         TextureMap blockTextureMap = TextureMap.of(TextureKey.ALL, textureID);
         TextureMap textureMap = sideTopBottom(textureID);
         this.createBlock(modelGenerator, block, blockTextureMap);
+        this.createStairs(modelGenerator, stairs, textureMap);
+        this.createSlab(modelGenerator, slab, textureMap, getBlockId(block));
+    }
+
+    public final void registerBlockStairsSlabwithTopBottom(BlockStateModelGenerator modelGenerator, Block block) {
+        TextureMap textureMap = sideTopBottom(TextureMap.getId(block), TextureMap.getSubId(block, "_top"), TextureMap.getSubId(block, "_bottom"));
+        this.createBlock(modelGenerator, block, Models.CUBE_BOTTOM_TOP, textureMap);
     }
 
     public final void registerStairs(BlockStateModelGenerator modelGenerator, Block block, Block textureSource) {
@@ -361,6 +381,16 @@ public class BlockusModelProvider extends FabricModelProvider {
     public final void registerSlab(BlockStateModelGenerator modelGenerator, Block block, Block textureSource) {
         TextureMap textureMap = sideTopBottom(TextureMap.getId(textureSource));
         this.createSlab(modelGenerator, block, textureMap, TextureMap.getId(textureSource));
+    }
+
+    public final void registerSlabwithTop(BlockStateModelGenerator modelGenerator, Block block, Block textureSource, Block end) {
+        TextureMap textureMap = sideTopBottom(TextureMap.getId(textureSource), TextureMap.getSubId(end, "_top"));
+        this.createSlab(modelGenerator, block, textureMap, TextureMap.getId(textureSource));
+    }
+
+    public final void registerWall(BlockStateModelGenerator modelGenerator, Block block, Block textureSource) {
+        TextureMap textureMap = TextureMap.of(TextureKey.WALL, TextureMap.getId(textureSource));
+        this.createWall(modelGenerator, block, textureMap);
     }
 
     public final void registerButton(BlockStateModelGenerator modelGenerator, Block buttonBlock, Identifier textureSource) {
@@ -492,28 +522,8 @@ public class BlockusModelProvider extends FabricModelProvider {
     }
 
     public final void registerColoredTilesSimple(BlockStateModelGenerator modelGenerator, Block block) {
-        Identifier identifier = getBlockId(Registries.BLOCK.getId(block).getPath().replace("_colored", ""));
+        Identifier identifier = getModifiedBlockId(block,"_colored", "");
         this.createBlock(modelGenerator, block, TextureMap.of(TextureKey.ALL, identifier));
-    }
-
-    private static TextureMap tilesTextures(Block tile1, Block tile2) {
-        return (new TextureMap()).put(BlockusTextureKey.TILE_1, getTilesId(tile1)).put(BlockusTextureKey.TILE_2, getTilesId(tile2));
-    }
-
-    public static TextureMap sideTop(Identifier block, Identifier top) {
-        return (new TextureMap()).put(TextureKey.SIDE, block).put(TextureKey.TOP, top);
-    }
-
-    public static TextureMap sideTopBottom(Identifier block, Identifier top, Identifier bottom) {
-        return (new TextureMap()).put(TextureKey.SIDE, block).put(TextureKey.TOP, top).put(TextureKey.BOTTOM, bottom);
-    }
-
-    public static TextureMap sideTopBottom(Identifier block) {
-        return (new TextureMap()).put(TextureKey.SIDE, block).put(TextureKey.TOP, block).put(TextureKey.BOTTOM, block);
-    }
-
-    public static TextureMap frontTopSideBottom(Block block) {
-        return (new TextureMap()).put(TextureKey.FRONT, TextureMap.getId(block)).put(TextureKey.TOP, TextureMap.getSubId(block, "_top")).put(TextureKey.SIDE, TextureMap.getSubId(block, "_side")).put(TextureKey.BOTTOM, TextureMap.getSubId(block, "_side"));
     }
 
     public final void createBlock(BlockStateModelGenerator modelGenerator, Block block, Model model, TextureMap textureMap) {
@@ -539,6 +549,15 @@ public class BlockusModelProvider extends FabricModelProvider {
         modelGenerator.registerParentedItemModel(block, identifier);
     }
 
+    public final void createWall(BlockStateModelGenerator modelGenerator, Block block, TextureMap textureMap) {
+        Identifier identifier = Models.TEMPLATE_WALL_POST.upload(block, textureMap, modelGenerator.modelCollector);
+        Identifier identifier2 = Models.TEMPLATE_WALL_SIDE.upload(block, textureMap, modelGenerator.modelCollector);
+        Identifier identifier3 = Models.TEMPLATE_WALL_SIDE_TALL.upload(block, textureMap, modelGenerator.modelCollector);
+        modelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createWallBlockState(block, identifier, identifier2, identifier3));
+        Identifier identifier4 = Models.WALL_INVENTORY.upload(block, textureMap, modelGenerator.modelCollector);
+        modelGenerator.registerParentedItemModel(block, identifier4);
+    }
+
     public static BlockStateVariantMap createUpDefaultRotationStates() {
         return BlockStateVariantMap.create(Properties.FACING)
             .register(Direction.DOWN, BlockStateVariant.create().put(VariantSettings.X, VariantSettings.Rotation.R180))
@@ -550,10 +569,44 @@ public class BlockusModelProvider extends FabricModelProvider {
     }
 
     public static Identifier getTilesId(Block block) {
-        return getBlockId(Registries.BLOCK.getId(block).getPath().replace("_concrete", "_tiles"));
+        return getModifiedBlockId(block, "_concrete", "_tiles");
     }
 
     public static Identifier getBlockId(String id) {
         return new Identifier("blockus", "block/" + id);
+    }
+
+    public static Identifier getBlockId(Block block) {
+        return new Identifier("blockus", "block/" + BLOCK.getId(block).getPath());
+    }
+
+    public static Identifier getModifiedBlockId(Block block, String target, String replacement) {
+        return new Identifier("blockus", "block/" + BLOCK.getId(block).getPath().replace(target, replacement));
+    }
+
+// TextureMaps
+
+    private static TextureMap tilesTextures(Block tile1, Block tile2) {
+        return (new TextureMap()).put(BlockusTextureKey.TILE_1, getTilesId(tile1)).put(BlockusTextureKey.TILE_2, getTilesId(tile2));
+    }
+
+    public static TextureMap sideTop(Identifier block, Identifier top) {
+        return (new TextureMap()).put(TextureKey.SIDE, block).put(TextureKey.TOP, top);
+    }
+
+    public static TextureMap sideTopBottom(Identifier block, Identifier top, Identifier bottom) {
+        return (new TextureMap()).put(TextureKey.SIDE, block).put(TextureKey.TOP, top).put(TextureKey.BOTTOM, bottom);
+    }
+
+    public static TextureMap sideTopBottom(Identifier block, Identifier end) {
+        return (new TextureMap()).put(TextureKey.SIDE, block).put(TextureKey.TOP, end).put(TextureKey.BOTTOM, end);
+    }
+
+    public static TextureMap sideTopBottom(Identifier block) {
+        return (new TextureMap()).put(TextureKey.SIDE, block).put(TextureKey.TOP, block).put(TextureKey.BOTTOM, block);
+    }
+
+    public static TextureMap frontTopSideBottom(Block block) {
+        return (new TextureMap()).put(TextureKey.FRONT, TextureMap.getId(block)).put(TextureKey.TOP, TextureMap.getSubId(block, "_top")).put(TextureKey.SIDE, TextureMap.getSubId(block, "_side")).put(TextureKey.BOTTOM, TextureMap.getSubId(block, "_side"));
     }
 }
