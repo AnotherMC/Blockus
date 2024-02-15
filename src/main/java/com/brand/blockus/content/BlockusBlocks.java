@@ -245,6 +245,20 @@ public class BlockusBlocks extends BlocksRegistration {
     public static final Block WHITE_OAK_LEAVES = register("white_oak_leaves", new LeavesBlock(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).mapColor(MapColor.ORANGE).pistonBehavior(PistonBehavior.DESTROY).allowsSpawning(BlockusBlocks::canSpawnOnLeaves).suffocates(BlockusBlocks::never).blockVision(BlockusBlocks::never)));
     public static final WoodTypes WHITE_OAK = new WoodTypes("white_oak", Blocks.OAK_PLANKS, MapColor.OFF_WHITE, BlockSoundGroup.WOOD);
 
+    // Mosaics
+    public static final BSSTypes OAK_MOSAIC = new BSSTypes("oak_mosaic", Blocks.OAK_PLANKS);
+    public static final BSSTypes SPRUCE_MOSAIC = new BSSTypes("spruce_mosaic", Blocks.SPRUCE_PLANKS);
+    public static final BSSTypes BIRCH_MOSAIC = new BSSTypes("birch_mosaic", Blocks.BIRCH_PLANKS);
+    public static final BSSTypes JUNGLE_MOSAIC = new BSSTypes("jungle_mosaic", Blocks.JUNGLE_PLANKS);
+    public static final BSSTypes ACACIA_MOSAIC = new BSSTypes("acacia_mosaic", Blocks.ACACIA_PLANKS);
+    public static final BSSTypes DARK_OAK_MOSAIC = new BSSTypes("dark_oak_mosaic", Blocks.DARK_OAK_PLANKS);
+    public static final BSSTypes CHERRY_MOSAIC = new BSSTypes("cherry_mosaic", Blocks.MANGROVE_PLANKS);
+    public static final BSSTypes MANGROVE_MOSAIC = new BSSTypes("mangrove_mosaic", Blocks.MANGROVE_PLANKS);
+    public static final BSSTypes WHITE_OAK_MOSAIC = new BSSTypes("white_oak_mosaic", WHITE_OAK.planks);
+    public static final BSSTypes WARPED_MOSAIC = new BSSTypes("warped_mosaic", Blocks.WARPED_PLANKS);
+    public static final BSSTypes CRIMSON_MOSAIC = new BSSTypes("crimson_mosaic", Blocks.CRIMSON_PLANKS);
+
+
     // Herringbone Planks
     public static final Block HERRINGBONE_OAK_PLANKS = register("herringbone_oak_planks", createCopy(Blocks.OAK_PLANKS));
     public static final Block HERRINGBONE_SPRUCE_PLANKS = register("herringbone_spruce_planks", createCopy(Blocks.SPRUCE_PLANKS));
@@ -268,11 +282,9 @@ public class BlockusBlocks extends BlocksRegistration {
     public static final BSSTypes MOSSY_CHERRY_PLANKS = new BSSTypes("mossy_cherry_planks", Blocks.CHERRY_PLANKS);
     public static final BSSTypes MOSSY_MANGROVE_PLANKS = new BSSTypes("mossy_mangrove_planks", Blocks.MANGROVE_PLANKS);
     public static final BSSTypes MOSSY_BAMBOO_PLANKS = new BSSTypes("mossy_bamboo_planks", Blocks.BAMBOO_PLANKS);
-    public static final BSSTypes MOSSY_RAW_BAMBOO_PLANKS = new BSSTypes("mossy_raw_bamboo_planks", RAW_BAMBOO.planks);
     public static final BSSTypes MOSSY_WHITE_OAK_PLANKS = new BSSTypes("mossy_white_oak_planks", WHITE_OAK.planks);
     public static final BSSTypes MOSSY_WARPED_PLANKS = new BSSTypes("mossy_warped_planks", Blocks.WARPED_PLANKS);
     public static final BSSTypes MOSSY_CRIMSON_PLANKS = new BSSTypes("mossy_crimson_planks", Blocks.CRIMSON_PLANKS);
-    public static final BSSTypes MOSSY_CHARRED_PLANKS = new BSSTypes("mossy_charred_planks", CHARRED.planks);
 
     // Food Blocks
     public static final Block SWEET_BERRIES_CRATE = register("sweet_berries_crate", createCrates());

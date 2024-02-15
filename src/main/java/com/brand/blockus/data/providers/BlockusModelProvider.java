@@ -42,11 +42,7 @@ public class BlockusModelProvider extends FabricModelProvider {
         }
 
         for (BSSWTypes bsswType : BSSWTypes.values()) {
-            if (bsswType.block == BlockusBlocks.SOUL_SANDSTONE.block) {
-                this.registerBlockStairsSlabwithTopBottom(modelGenerator, bsswType.block, bsswType.stairs, bsswType.slab);
-            } else {
-                this.registerBlockStairsSlabAndWall(modelGenerator, bsswType.block);
-            }
+            this.registerBlockStairsSlabAndWall(modelGenerator, bsswType.block);
         }
 
         for (ConcreteTypes concreteType : ConcreteTypes.values()) {
@@ -187,14 +183,6 @@ public class BlockusModelProvider extends FabricModelProvider {
         this.registerPillar(modelGenerator, BlockusBlocks.RED_SANDSTONE_PILLAR);
         this.registerCubeColumn(modelGenerator, BlockusBlocks.GOLD_DECORATED_RED_SANDSTONE, Blocks.RED_SANDSTONE);
         this.registerCubeColumn(modelGenerator, BlockusBlocks.LAPIS_DECORATED_RED_SANDSTONE, Blocks.RED_SANDSTONE);
-
-        // Soul Sandstone
-        this.registerCubeColumn(modelGenerator, BlockusBlocks.CHISELED_SOUL_SANDSTONE, BlockusBlocks.SOUL_SANDSTONE.block);
-        this.registerCubeColumn(modelGenerator, BlockusBlocks.CUT_SOUL_SANDSTONE, BlockusBlocks.SOUL_SANDSTONE.block);
-        this.registerSlabwithTop(modelGenerator, BlockusBlocks.CUT_SOUL_SANDSTONE_SLAB, BlockusBlocks.CUT_SOUL_SANDSTONE, BlockusBlocks.SOUL_SANDSTONE.block);
-        this.registerPillar(modelGenerator, BlockusBlocks.SOUL_SANDSTONE_PILLAR);
-        this.registerCubeColumn(modelGenerator, BlockusBlocks.GOLD_DECORATED_SOUL_SANDSTONE, BlockusBlocks.SOUL_SANDSTONE.block);
-        this.registerCubeColumn(modelGenerator, BlockusBlocks.LAPIS_DECORATED_SOUL_SANDSTONE, BlockusBlocks.SOUL_SANDSTONE.block);
 
         // Rainbow
         this.registerLines(modelGenerator, BlockusBlocks.RAINBOW_BLOCK);
@@ -364,8 +352,6 @@ public class BlockusModelProvider extends FabricModelProvider {
         TextureMap blockTextureMap = TextureMap.of(TextureKey.ALL, textureID);
         TextureMap textureMap = sideTopBottom(textureID);
         this.createBlock(modelGenerator, block, blockTextureMap);
-        this.createStairs(modelGenerator, stairs, textureMap);
-        this.createSlab(modelGenerator, slab, textureMap, getBlockId(block));
     }
 
     public final void registerBlockStairsSlabwithTopBottom(BlockStateModelGenerator modelGenerator, Block block) {

@@ -2,6 +2,10 @@
   "replace": false,
   "values": [
     "blockus:herringbone_crimson_planks",
-    "blockus:herringbone_warped_planks"
+    "blockus:herringbone_warped_planks",
+    "blockus:mossy_crimson_planks",
+    "blockus:mossy_warped_planks",
+    "blockus:crimson_mosaic",
+    "blockus:warped_mosaic"
   ]
 }

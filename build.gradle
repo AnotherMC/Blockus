@@ -1,7 +1,6 @@
 plugins {
 	id 'fabric-loom' version '1.5-SNAPSHOT'
 	id 'maven-publish'
-  id "me.modmuss50.mod-publish-plugin" version "0.4.5"
 }
 
 sourceCompatibility = JavaVersion.VERSION_17
@@ -88,33 +87,4 @@ jar {
 		rename { "${it}_${project.archivesBaseName}" }
 	}
 }
-
-publishMods {
-  file = remapJar.archiveFile
-  changelog = file("changelog.md").text
-  type = STABLE
-  modLoaders.add("fabric")
-
-  modrinth {
-    accessToken = providers.environmentVariable("MODRINTH_TOKEN")
-    projectId = "zFiY2Go0"
-    minecraftVersions.add("${minecraft_version}")
-    minecraftVersions.add("1.20.3")
-    requires {
-      slug = "fabric-api"
-    }
-  }
-
-  curseforge {
-    accessToken = providers.environmentVariable("CURSEFORGE_TOKEN")
-    projectId = "312289"
-    displayName = "(${project.minecraft_version}) Blockus $project.version"
-    minecraftVersions.add("${minecraft_version}")
-    minecraftVersions.add("1.20.3")
-    requires {
-      slug = "fabric-api"
-    }
-  }
-}
-
   

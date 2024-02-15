@@ -4,7 +4,6 @@ import com.brand.blockus.content.BlockusBlocks;
 import com.brand.blockus.content.BlockusItems;
 import com.brand.blockus.content.types.TimberFrameTypes;
 import com.brand.blockus.content.types.WoodTypes;
-import com.brand.blockus.content.types.WoolTypes;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.fabricmc.fabric.api.registry.*;
 import net.minecraft.block.Block;
@@ -70,27 +69,21 @@ public class Instance {
 
         // Wooden mosaic
         Block[][] woodenMosaics = {
-            {BlockusBlocks.OAK_MOSAIC.block, BlockusBlocks.OAK_MOSAIC.stairs, BlockusBlocks.OAK_MOSAIC.slab},
-            {BlockusBlocks.BIRCH_MOSAIC.block, BlockusBlocks.BIRCH_MOSAIC.stairs, BlockusBlocks.BIRCH_MOSAIC.slab},
-            {BlockusBlocks.SPRUCE_MOSAIC.block, BlockusBlocks.SPRUCE_MOSAIC.stairs, BlockusBlocks.SPRUCE_MOSAIC.slab},
-            {BlockusBlocks.JUNGLE_MOSAIC.block, BlockusBlocks.JUNGLE_MOSAIC.stairs, BlockusBlocks.JUNGLE_MOSAIC.slab},
-            {BlockusBlocks.ACACIA_MOSAIC.block, BlockusBlocks.ACACIA_MOSAIC.stairs, BlockusBlocks.ACACIA_MOSAIC.slab},
-            {BlockusBlocks.DARK_OAK_MOSAIC.block, BlockusBlocks.DARK_OAK_MOSAIC.stairs, BlockusBlocks.DARK_OAK_MOSAIC.slab},
-            {BlockusBlocks.MANGROVE_MOSAIC.block, BlockusBlocks.MANGROVE_MOSAIC.stairs, BlockusBlocks.MANGROVE_MOSAIC.slab},
-            {BlockusBlocks.WHITE_OAK_MOSAIC.block, BlockusBlocks.WHITE_OAK_MOSAIC.stairs, BlockusBlocks.WHITE_OAK_MOSAIC.slab},
-            {BlockusBlocks.RAW_BAMBOO_MOSAIC.block, BlockusBlocks.RAW_BAMBOO_MOSAIC.stairs, BlockusBlocks.RAW_BAMBOO_MOSAIC.slab},
-            {BlockusBlocks.CHERRY_MOSAIC.block, BlockusBlocks.CHERRY_MOSAIC.stairs, BlockusBlocks.CHERRY_MOSAIC.slab}
+            {BlockusBlocks.OAK_MOSAIC.block},
+            {BlockusBlocks.BIRCH_MOSAIC.block},
+            {BlockusBlocks.SPRUCE_MOSAIC.block},
+            {BlockusBlocks.JUNGLE_MOSAIC.block},
+            {BlockusBlocks.ACACIA_MOSAIC.block},
+            {BlockusBlocks.DARK_OAK_MOSAIC.block},
+            {BlockusBlocks.MANGROVE_MOSAIC.block},
+            {BlockusBlocks.WHITE_OAK_MOSAIC.block},
+            {BlockusBlocks.CHERRY_MOSAIC.block}
         };
 
         for (Block[] blocks : woodenMosaics) {
-            if (blocks.length == 0) {
-                continue;
-            }
             Block block = blocks[0];
 
             FlammableBlockRegistry.getDefaultInstance().add(block, 5, 20);
-
-
             FuelRegistry.INSTANCE.add(block, 300);
 
 
@@ -98,30 +91,23 @@ public class Instance {
 
         // Mossy planks
         Block[][] mossyWood = {
-            {BlockusBlocks.MOSSY_OAK_PLANKS.block, BlockusBlocks.MOSSY_OAK_PLANKS.stairs, BlockusBlocks.MOSSY_OAK_PLANKS.slab},
-            {BlockusBlocks.MOSSY_BIRCH_PLANKS.block, BlockusBlocks.MOSSY_BIRCH_PLANKS.stairs, BlockusBlocks.MOSSY_BIRCH_PLANKS.slab},
-            {BlockusBlocks.MOSSY_SPRUCE_PLANKS.block, BlockusBlocks.MOSSY_SPRUCE_PLANKS.stairs, BlockusBlocks.MOSSY_SPRUCE_PLANKS.slab},
-            {BlockusBlocks.MOSSY_JUNGLE_PLANKS.block, BlockusBlocks.MOSSY_JUNGLE_PLANKS.stairs, BlockusBlocks.MOSSY_JUNGLE_PLANKS.slab},
-            {BlockusBlocks.MOSSY_ACACIA_PLANKS.block, BlockusBlocks.MOSSY_ACACIA_PLANKS.stairs, BlockusBlocks.MOSSY_ACACIA_PLANKS.slab},
-            {BlockusBlocks.MOSSY_DARK_OAK_PLANKS.block, BlockusBlocks.MOSSY_DARK_OAK_PLANKS.stairs, BlockusBlocks.MOSSY_DARK_OAK_PLANKS.slab},
-            {BlockusBlocks.MOSSY_MANGROVE_PLANKS.block, BlockusBlocks.MOSSY_MANGROVE_PLANKS.stairs, BlockusBlocks.MOSSY_MANGROVE_PLANKS.slab},
-            {BlockusBlocks.MOSSY_WHITE_OAK_PLANKS.block, BlockusBlocks.MOSSY_WHITE_OAK_PLANKS.stairs, BlockusBlocks.MOSSY_WHITE_OAK_PLANKS.slab},
-            {BlockusBlocks.MOSSY_BAMBOO_PLANKS.block, BlockusBlocks.MOSSY_BAMBOO_PLANKS.stairs, BlockusBlocks.MOSSY_BAMBOO_PLANKS.slab},
-            {BlockusBlocks.MOSSY_RAW_BAMBOO_PLANKS.block, BlockusBlocks.MOSSY_RAW_BAMBOO_PLANKS.stairs, BlockusBlocks.MOSSY_RAW_BAMBOO_PLANKS.slab},
-            {BlockusBlocks.MOSSY_CHERRY_PLANKS.block, BlockusBlocks.MOSSY_CHERRY_PLANKS.stairs, BlockusBlocks.MOSSY_CHERRY_PLANKS.slab}
+            {BlockusBlocks.MOSSY_OAK_PLANKS.block},
+            {BlockusBlocks.MOSSY_BIRCH_PLANKS.block},
+            {BlockusBlocks.MOSSY_SPRUCE_PLANKS.block},
+            {BlockusBlocks.MOSSY_JUNGLE_PLANKS.block},
+            {BlockusBlocks.MOSSY_ACACIA_PLANKS.block},
+            {BlockusBlocks.MOSSY_DARK_OAK_PLANKS.block},
+            {BlockusBlocks.MOSSY_MANGROVE_PLANKS.block},
+            {BlockusBlocks.MOSSY_WHITE_OAK_PLANKS.block},
+            {BlockusBlocks.MOSSY_BAMBOO_PLANKS.block},
+            {BlockusBlocks.MOSSY_CHERRY_PLANKS.block}
         };
 
         for (Block[] blocks : mossyWood) {
             Block block = blocks[0];
-            Block stairs = blocks[1];
-            Block slab = blocks[2];
 
             FlammableBlockRegistry.getDefaultInstance().add(block, 5, 20);
-            FlammableBlockRegistry.getDefaultInstance().add(stairs, 5, 20);
-            FlammableBlockRegistry.getDefaultInstance().add(slab, 5, 20);
             FuelRegistry.INSTANCE.add(block, 300);
-            FuelRegistry.INSTANCE.add(stairs, 300);
-            FuelRegistry.INSTANCE.add(slab, 150);
         }
 
         // Herringbone planks

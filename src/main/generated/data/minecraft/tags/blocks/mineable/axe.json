@@ -2,17 +2,9 @@
   "replace": false,
   "values": [
     "blockus:soul_o_lantern",
-    {
-      "id": "#blockus:framed_paper_blocks",
-      "required": false
-    },
-    {
-      "id": "#blockus:timber_frames",
-      "required": false
-    },
-    {
-      "id": "#blockus:food_crates",
-      "required": false
-    }
+    "#blockus:framed_paper_blocks",
+    "#blockus:food_crates",
+    "#blockus:all_wooden_mosaics",
+    "#blockus:all_mossy_planks"
   ]
 }

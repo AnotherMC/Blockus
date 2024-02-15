@@ -24,7 +24,9 @@ jobs:
       - name: make gradle wrapper executable
         run: chmod +x ./gradlew
       - uses: gradle/wrapper-validation-action@v1
-      - run: ./gradlew build publish publishMods --stacktrace -Porg.gradle.parallel.threads=4
-        env:
-          CURSEFORGE_TOKEN: ${{ secrets.CURSEFORGE_TOKEN }}
-          MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
+      - run: ./gradlew build publish --stacktrace -Porg.gradle.parallel.threads=4
+      - name: Upload GitHub release
+        uses: AButler/upload-release-assets@v3.0
+        with:
+          files: 'build/libs/*.jar;!build/libs/*-sources.jar;!build/libs/*-dev.jar'
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
