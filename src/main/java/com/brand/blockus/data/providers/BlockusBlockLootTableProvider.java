@@ -2,7 +2,6 @@ package com.brand.blockus.data.providers;
 
 import com.brand.blockus.blocks.base.CookieBlock;
 import com.brand.blockus.blocks.base.LargeFlowerPotBlock;
-import com.brand.blockus.content.BlockusBlocks;
 import com.brand.blockus.content.BlockusItems;
 import com.brand.blockus.content.types.*;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -23,10 +22,16 @@ import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.operator.BoundedIntUnaryOperator;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
+import net.minecraft.registry.RegistryWrapper;
+
+import java.util.concurrent.CompletableFuture;
+import java.util.function.Function;
+
+import static com.brand.blockus.content.BlockusBlocks.*;
 
 public class BlockusBlockLootTableProvider extends FabricBlockLootTableProvider {
-    public BlockusBlockLootTableProvider(FabricDataOutput output) {
-        super(output);
+    public BlockusBlockLootTableProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+        super(output, registriesFuture);
     }
 
     @Override
@@ -51,9 +56,7 @@ public class BlockusBlockLootTableProvider extends FabricBlockLootTableProvider 
         }
 
         for (TimberFrameTypes timberFrameType : TimberFrameTypes.values()) {
-            this.addDrop(timberFrameType.block);
-            this.addDrop(timberFrameType.diagonal);
-            this.addDrop(timberFrameType.cross);
+            this.addDrops(timberFrameType.block, timberFrameType.diagonal, timberFrameType.cross);
         }
 
         for (AsphaltTypes asphaltTypes : AsphaltTypes.values()) {
@@ -61,8 +64,8 @@ public class BlockusBlockLootTableProvider extends FabricBlockLootTableProvider 
         }
 
 
-        this.addDrop(BlockusBlocks.CHISELED_MUD_BRICKS);
-        this.addDrop(BlockusBlocks.MUD_BRICK_PILLAR);
+        this.addDrops(CHISELED_MUD_BRICKS,
+            MUD_BRICK_PILLAR,
 
         // Viridite
         this.addDrop(BlockusBlocks.CHISELED_VIRIDITE);
@@ -242,6 +245,26 @@ public class BlockusBlockLootTableProvider extends FabricBlockLootTableProvider 
 
     public void addBlockStairsandSlabDrops(Block block) {
         this.addDrop(block);
+
+    public void addDrops(Block... blocks) {
+        for (Block block : blocks) this.addDrop(block);
+    }
+
+    public void addDrops(Function<Block, LootTable.Builder> lootTableFunction, Block... blocks) {
+        for (Block block : blocks) this.addDrop(block, lootTableFunction.apply(block));
+    }
+
+    public void addDropsWithSilkTouch(Block... blocks) {
+        for (Block block : blocks) this.addDropWithSilkTouch(block);
+    }
+
+    public void addPottedPlantDropsBatch(Block... blocks) {
+        for (Block block : blocks) this.addPottedPlantDrops(block);
+    }
+
+    public void addBlockStairsandSlabDrops(Block block, Block stairs, Block slab) {
+        this.addDrops(block, stairs);
+        this.addDrop(slab, this::slabDrops);
     }
 
     public void addWoodSetDrop(Block planks) {
@@ -258,5 +281,13 @@ public class BlockusBlockLootTableProvider extends FabricBlockLootTableProvider 
 
     public LootTable.Builder stickDrops(Block block) {
         return dropsWithSilkTouchOrShears(block, addSurvivesExplosionCondition(block, ItemEntry.builder(Items.STICK)));
+    }
+
+    public LootTable.Builder pottedLargePlantDrops(ItemConvertible plant) {
+        return LootTable.builder().pool(addSurvivesExplosionCondition(LARGE_FLOWER_POT, LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F)).with(ItemEntry.builder(LARGE_FLOWER_POT)))).pool(addSurvivesExplosionCondition(plant, LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F)).with(ItemEntry.builder(plant))));
+    }
+
+    public void addPottedLargePlantDrop(Block block) {
+        this.addDrop(block, (flowerPot) -> this.pottedLargePlantDrops(((LargeFlowerPotBlock) flowerPot).getContent()));
     }
 }

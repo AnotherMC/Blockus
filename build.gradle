@@ -1,10 +1,10 @@
 plugins {
-	id 'fabric-loom' version '1.5-SNAPSHOT'
+	id 'fabric-loom' version '1.6-SNAPSHOT'
 	id 'maven-publish'
 }
 
-sourceCompatibility = JavaVersion.VERSION_17
-targetCompatibility = JavaVersion.VERSION_17
+sourceCompatibility = JavaVersion.VERSION_21
+targetCompatibility = JavaVersion.VERSION_21
 
 archivesBaseName = project.archives_base_name
 version = "${mod_version}+${minecraft_version}"
@@ -34,10 +34,10 @@ dependencies {
   modImplementation "com.terraformersmc.terraform-api:terraform-wood-api-v1:${project.terraform_version}"
 	include "com.terraformersmc.terraform-api:terraform-wood-api-v1:${project.terraform_version}"
   modImplementation "com.terraformersmc.terraform-api:terraform-shapes-api-v1:${project.terraform_version}"
-  modImplementation "com.terraformersmc:biolith:${biolith_version}"
+/*   modImplementation "com.terraformersmc:biolith:${biolith_version}"
 
   // Promenade
-/*  modImplementation "curse.maven:promenade-399648:${project.promenade_version}"
+  modImplementation "curse.maven:promenade-399648:${project.promenade_version}"
   modImplementation "curse.maven:dawnapi-399309:${project.dawn_version}"*/
 }
 
@@ -78,8 +78,7 @@ processResources {
 }
 
 tasks.withType(JavaCompile).configureEach {
-	// Minecraft 1.18 (1.18-pre2) upwards uses Java 17.
-	it.options.release = 17
+	it.options.release = 21
 }
 
 jar {
@@ -87,4 +86,6 @@ jar {
 		rename { "${it}_${project.archivesBaseName}" }
 	}
 }
+
+
   
