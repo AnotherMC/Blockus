@@ -2,7 +2,6 @@ package com.brand.blockus.content;
 
 import com.brand.blockus.Blockus;
 import com.brand.blockus.blocks.base.Barrier;
-import com.brand.blockus.blocks.base.LargeFlowerPotBlock;
 import com.brand.blockus.blocks.base.SimpleFallingBlock;
 import com.brand.blockus.blocks.base.SmallHedgeBlock;
 import com.brand.blockus.blocks.base.amethyst.AmethystSlabBlock;
@@ -151,9 +150,6 @@ public class BlocksRegistration {
         return new FlowerPotBlock(content, AbstractBlock.Settings.create().instrument(Instrument.BASEDRUM).breakInstantly().pistonBehavior(PistonBehavior.DESTROY).nonOpaque());
     }
 
-    public static LargeFlowerPotBlock createLargeFlowerPot(Block content) {
-        return new LargeFlowerPotBlock(content, AbstractBlock.Settings.create().instrument(Instrument.BASEDRUM).strength(0.5F, 1.0F).pistonBehavior(PistonBehavior.BLOCK).nonOpaque());
-    }
 
     // Door & Trapdoor
     public static AbstractBlock.Settings createDoorTrapdoorBlockSettings(float hardness, float resistance, BlockSoundGroup sound, MapColor color, Instrument instrument) {

@@ -19,7 +19,7 @@ public class ConcreteTypes {
 
         this.base = base;
 
-        this.block = BlocksRegistration.register(type, new Block(FabricBlockSettings.copyOf(base)));
+        this.block = BlocksRegistration.register(type, new Block(Block.Settings.copy(base)));
         String replace = type.replace("_bricks", "");
         this.chiseled = BlocksRegistration.register("chiseled_" + replace, new Block(AbstractBlock.Settings.copy(base)));
         this.pillar = BlocksRegistration.register(replace + "_pillar", new PillarBlock(AbstractBlock.Settings.copy(base)));
