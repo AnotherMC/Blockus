@@ -1,5 +1,6 @@
 package com.brand.blockus.data.providers;
 
+import com.brand.blockus.Blockus;
 import com.brand.blockus.content.BlockusBlocks;
 import com.brand.blockus.content.types.*;
 import com.brand.blockus.data.family.BlockusWoodFamilies;
@@ -31,7 +32,7 @@ public class BlockusModelProvider extends FabricModelProvider {
             modelGenerator.registerCubeAllModelTexturePool(family.getBaseBlock()).family(family);
         });
 
-        for (BSSTypes bssType : BSSTypes.values()) {
+        for (BSSWTypes bssType : BSSWTypes.values()) {
             if (bssType.type.contains("rough") && bssType.type.contains("sandstone")) {
                 this.registerBlockStairsSlabWithBottom(modelGenerator, bssType.block, bssType.base);
             } else if (bssType.type.contains("smooth") && bssType.type.contains("sandstone") || bssType.type.contains("rough_basalt")) {
@@ -45,6 +46,7 @@ public class BlockusModelProvider extends FabricModelProvider {
             this.registerBlockStairsSlabAndWall(modelGenerator, bsswType.block);
         }
 
+
         for (ConcreteTypes concreteType : ConcreteTypes.values()) {
             this.registerBlockStairsSlabAndWall(modelGenerator, concreteType.block);
             modelGenerator.registerSimpleCubeAll(concreteType.chiseled);
@@ -55,6 +57,7 @@ public class BlockusModelProvider extends FabricModelProvider {
             modelGenerator.registerSimpleCubeAll(timberFrameType.block);
             modelGenerator.registerSimpleCubeAll(timberFrameType.cross);
             this.registerDiagonalTimberFrame(modelGenerator, timberFrameType.diagonal);
+            modelGenerator.registerGlassPane(timberFrameType.grate, timberFrameType.lattice);
         }
 
         for (AsphaltTypes asphaltTypes : AsphaltTypes.values()) {
@@ -95,6 +98,14 @@ public class BlockusModelProvider extends FabricModelProvider {
         modelGenerator.registerSimpleCubeAll(BlockusBlocks.CHISELED_DRIPSTONE);
         modelGenerator.registerSimpleCubeAll(BlockusBlocks.CRACKED_DRIPSTONE_BRICKS);
         this.registerPillar(modelGenerator, BlockusBlocks.DRIPSTONE_PILLAR);
+
+        // Tuff
+        modelGenerator.registerSimpleCubeAll(BlockusBlocks.CARVED_TUFF_BRICKS);
+        modelGenerator.registerSimpleCubeAll(BlockusBlocks.CRACKED_TUFF_BRICKS);
+        this.registerButtonAndPressurePlate(modelGenerator, BlockusBlocks.POLISHED_TUFF_PRESSURE_PLATE, BlockusBlocks.POLISHED_TUFF_BUTTON, Blocks.POLISHED_TUFF);
+        modelGenerator.registerSouthDefaultHorizontalFacing(TexturedModel.TEMPLATE_GLAZED_TERRACOTTA, BlockusBlocks.TUFF_CIRCULAR_PAVING);
+        this.registerPillar(modelGenerator, BlockusBlocks.TUFF_PILLAR);
+        modelGenerator.registerSimpleCubeAll(BlockusBlocks.HERRINGBONE_TUFF_BRICKS);
 
         // Deepslate
 
@@ -559,15 +570,15 @@ public class BlockusModelProvider extends FabricModelProvider {
     }
 
     public static Identifier getBlockId(String id) {
-        return new Identifier("blockus", "block/" + id);
+        return Blockus.id( "block/" + id);
     }
 
     public static Identifier getBlockId(Block block) {
-        return new Identifier("blockus", "block/" + BLOCK.getId(block).getPath());
+        return Blockus.id( "block/" + BLOCK.getId(block).getPath());
     }
 
     public static Identifier getModifiedBlockId(Block block, String target, String replacement) {
-        return new Identifier("blockus", "block/" + BLOCK.getId(block).getPath().replace(target, replacement));
+        return Blockus.id( "block/" + BLOCK.getId(block).getPath().replace(target, replacement));
     }
 
 // TextureMaps

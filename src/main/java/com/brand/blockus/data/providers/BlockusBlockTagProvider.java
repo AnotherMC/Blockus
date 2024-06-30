@@ -210,7 +210,7 @@ public class BlockusBlockTagProvider extends FabricTagProvider.BlockTagProvider 
             .add(BlockusBlocks.GOLDEN_APPLE_CRATE)
             .add(BlockusBlocks.GOLDEN_CARROT_CRATE)
             .add(BlockusBlocks.GLOW_BERRIES_CRATE)
-            .addOptional(new Identifier(Blockus.MOD_ID, "blueberries_crate"));
+            .addOptional(Blockus.id("blueberries_crate"));
 
         this.getOrCreateTagBuilder(BlockusBlockTags.FRAMED_PAPER_BLOCKS)
             .add(BlockusBlocks.FRAMED_PAPER_BLOCK);
@@ -439,7 +439,21 @@ public class BlockusBlockTagProvider extends FabricTagProvider.BlockTagProvider 
                 .add(timberFrameType.block)
                 .add(timberFrameType.diagonal)
                 .add(timberFrameType.cross);
+
+            this.getOrCreateTagBuilder(BlockusBlockTags.WOODEN_LATTICES)
+                .add(timberFrameType.lattice);
+
+            this.getOrCreateTagBuilder(BlockusBlockTags.WOODEN_GRATES)
+                .add(timberFrameType.grate);
         }
+
+        this.getOrCreateTagBuilder(BlockusBlockTags.TUFF_BLOCKS)
+            .add(MOSSY_TUFF_BRICKS.block)
+            .add(CRACKED_TUFF_BRICKS)
+            .add(CARVED_TUFF_BRICKS)
+            .add(HERRINGBONE_TUFF_BRICKS)
+            .add(TUFF_PILLAR)
+            .add(TUFF_CIRCULAR_PAVING);
 
         this.getOrCreateTagBuilder(BlockusBlockTags.WARPED_NETHER_GRASS)
             .add(Blocks.NETHER_SPROUTS)
@@ -483,7 +497,7 @@ public class BlockusBlockTagProvider extends FabricTagProvider.BlockTagProvider 
             .add(BlockusBlocks.MOSSY_WARPED_PLANKS.block)
            ;
 
-        this.getOrCreateTagBuilder(new Identifier("c", "planks_that_burn"))
+        this.getOrCreateTagBuilder(Identifier.of("c", "planks_that_burn"))
             .add(Blocks.OAK_PLANKS)
             .add(Blocks.SPRUCE_PLANKS)
             .add(Blocks.BIRCH_PLANKS)
@@ -711,20 +725,8 @@ public class BlockusBlockTagProvider extends FabricTagProvider.BlockTagProvider 
             .add(BlockusBlocks.LIMESTONE.block)
             .add(BlockusBlocks.MARBLE.block);
 
-
-        this.getOrCreateTagBuilder(new Identifier("promenade", "cherry_oak_logs"))
-            .addOptional(new Identifier(Blockus.MOD_ID, "cherry_oak_small_logs"));
-
-        this.getOrCreateTagBuilder(new Identifier("promenade", "dark_amaranth_stems"))
-            .addOptional(new Identifier(Blockus.MOD_ID, "dark_amaranth_small_stems"));
-
-        this.getOrCreateTagBuilder(new Identifier("promenade", "leaf_piles"))
-            .addOptional(new Identifier(Blockus.MOD_ID, "white_oak_leaf_pile"));
-
-        this.getOrCreateTagBuilder(new Identifier("promenade", "palm_logs"))
-            .addOptional(new Identifier(Blockus.MOD_ID, "palm_small_logs"));
-
-        this.getOrCreateTagBuilder(new Identifier("promenade", "maple_logs"))
-            .addOptional(new Identifier(Blockus.MOD_ID, "maple_small_logs"));
+        // Conventional Block Tags
+        this.getOrCreateTagBuilder(ConventionalBlockTags.GLASS_BLOCKS)
+            .addTag(BlockusBlockTags.BEVELED_GLASS);
     }
 }

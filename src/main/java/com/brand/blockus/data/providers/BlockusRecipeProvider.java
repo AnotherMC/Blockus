@@ -52,6 +52,7 @@ public class BlockusRecipeProvider extends FabricRecipeProvider {
 
         for (TimberFrameTypes timberFrameType : TimberFrameTypes.values()) {
             createTimberFramesRecipes(exporter, timberFrameType.base, timberFrameType.block, timberFrameType.diagonal, timberFrameType.cross);
+            createLatticeRecipes(exporter, timberFrameType.base, timberFrameType.lattice, timberFrameType.grate);
         }
 
         for (AsphaltTypes asphaltTypes : AsphaltTypes.values()) {
@@ -132,14 +133,17 @@ public class BlockusRecipeProvider extends FabricRecipeProvider {
         offerStonecuttingRecipe(exporter, BlockusBlocks.DRIPSTONE_BRICKS.block, Blocks.DRIPSTONE_BLOCK, BlockusBlocks.POLISHED_DRIPSTONE.block);
 
 
+        // Tuff
+        offerMossyRecipe(exporter, MOSSY_TUFF_BRICKS.block, Blocks.TUFF_BRICKS);
 
-        offerPolishedStoneRecipe(exporter, BlockusBlocks.DRIPSTONE_BRICKS.block, BlockusBlocks.POLISHED_DRIPSTONE.block);
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Blocks.TUFF_BRICKS), RecipeCategory.BUILDING_BLOCKS, CRACKED_TUFF_BRICKS.asItem(), 0.1F, 200).criterion(hasItem(Blocks.TUFF_BRICKS), conditionsFromItem(Blocks.TUFF_BRICKS)).offerTo(exporter);
 
-        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(BlockusBlocks.DRIPSTONE_BRICKS.block), RecipeCategory.BUILDING_BLOCKS, BlockusBlocks.CRACKED_DRIPSTONE_BRICKS.asItem(), 0.1F, 200).criterion(hasItem(BlockusBlocks.DRIPSTONE_BRICKS.block), conditionsFromItem(BlockusBlocks.DRIPSTONE_BRICKS.block)).offerTo(exporter);
+        offerStonecuttingRecipe(exporter, CARVED_TUFF_BRICKS, Blocks.TUFF, Blocks.POLISHED_TUFF, Blocks.TUFF_BRICKS);
+        offerStonecuttingRecipe(exporter, TUFF_PILLAR, Blocks.TUFF, Blocks.POLISHED_TUFF, Blocks.TUFF_BRICKS);
+        offerStonecuttingRecipe(exporter, HERRINGBONE_TUFF_BRICKS, Blocks.TUFF, Blocks.POLISHED_TUFF, Blocks.TUFF_BRICKS);
+        offerStonecuttingRecipe(exporter, TUFF_CIRCULAR_PAVING, Blocks.TUFF, Blocks.POLISHED_TUFF, Blocks.TUFF_BRICKS);
 
-        offerStonecuttingRecipe(exporter, BlockusBlocks.CHISELED_DRIPSTONE, Blocks.DRIPSTONE_BLOCK, BlockusBlocks.POLISHED_DRIPSTONE.block, BlockusBlocks.DRIPSTONE_BRICKS.block);
-        offerStonecuttingRecipe(exporter, BlockusBlocks.DRIPSTONE_PILLAR, Blocks.DRIPSTONE_BLOCK, BlockusBlocks.POLISHED_DRIPSTONE.block, BlockusBlocks.DRIPSTONE_BRICKS.block);
-
+        offerPressurePlateButtonRecipe(exporter, POLISHED_TUFF_PRESSURE_PLATE, POLISHED_TUFF_BUTTON, Blocks.POLISHED_TUFF);
 
         // Amethyst
         offerStonecuttingRecipe(exporter, BlockusBlocks.POLISHED_AMETHYST.block, Blocks.AMETHYST_BLOCK);
@@ -771,8 +775,8 @@ public class BlockusRecipeProvider extends FabricRecipeProvider {
         createCondensingRecipe(RecipeCategory.BUILDING_BLOCKS, output, Ingredient.ofItems(input)).criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter);
     }
 
-    public static CraftingRecipeJsonBuilder createCondensingRecipe(RecipeCategory category, ItemConvertible output, Ingredient input) {
-        return ShapedRecipeJsonBuilder.create(category, output, 4).input('S', input).pattern("SS").pattern("SS");
+    public static CraftingRecipeJsonBuilder createCondensingRecipe(RecipeCategory category, ItemConvertible output, int count, Ingredient input, String group) {
+        return ShapedRecipeJsonBuilder.create(category, output, count).input('S', input).group(group).pattern("SS").pattern("SS");
     }
 
     public static void offerShapelessRecipe2(RecipeExporter exporter, ItemConvertible output, ItemConvertible input, int outputCount) {
@@ -901,7 +905,7 @@ public class BlockusRecipeProvider extends FabricRecipeProvider {
     public static void offerStonecuttingRecipe(RecipeExporter exporter, ItemConvertible output, int count, ItemConvertible... ingredients) {
 
         for (ItemConvertible itemConvertible : ingredients) {
-            SingleItemRecipeJsonBuilder var10000 = SingleItemRecipeJsonBuilder.createStonecutting(Ingredient.ofItems(itemConvertible), RecipeCategory.BUILDING_BLOCKS, output, count).criterion(hasItem(itemConvertible), conditionsFromItem(itemConvertible));
+            StonecuttingRecipeJsonBuilder var10000 = StonecuttingRecipeJsonBuilder.createStonecutting(Ingredient.ofItems(itemConvertible), RecipeCategory.BUILDING_BLOCKS, output, count).criterion(hasItem(itemConvertible), conditionsFromItem(itemConvertible));
             String var10002 = convertBetween(output, itemConvertible);
             var10000.offerTo(exporter, var10002 + "_stonecutting");
         }

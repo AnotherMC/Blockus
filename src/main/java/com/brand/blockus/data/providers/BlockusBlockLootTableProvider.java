@@ -7,6 +7,7 @@ import com.brand.blockus.content.types.*;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.block.Block;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
@@ -22,6 +23,7 @@ import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.operator.BoundedIntUnaryOperator;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 
 import java.util.concurrent.CompletableFuture;
@@ -30,12 +32,16 @@ import java.util.function.Function;
 import static com.brand.blockus.content.BlockusBlocks.*;
 
 public class BlockusBlockLootTableProvider extends FabricBlockLootTableProvider {
-    public BlockusBlockLootTableProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
-        super(output, registriesFuture);
+    public final RegistryWrapper.WrapperLookup registryLookup;
+
+    public BlockusBlockLootTableProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
+        super(output, registryLookup);
+        this.registryLookup = registryLookup.join();
     }
 
     @Override
     public void generate() {
+        RegistryWrapper.Impl<Enchantment> impl = this.registryLookup.getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
 
         for (BSSTypes bssType : BSSTypes.values()) {
             this.addBlockStairsandSlabDrops(bssType.block);
@@ -56,7 +62,9 @@ public class BlockusBlockLootTableProvider extends FabricBlockLootTableProvider 
         }
 
         for (TimberFrameTypes timberFrameType : TimberFrameTypes.values()) {
-            this.addDrops(timberFrameType.block, timberFrameType.diagonal, timberFrameType.cross);
+            for (Block block : timberFrameType.all) {
+                this.addDrops(block);
+            }
         }
 
         for (AsphaltTypes asphaltTypes : AsphaltTypes.values()) {
@@ -277,7 +285,8 @@ public class BlockusBlockLootTableProvider extends FabricBlockLootTableProvider 
     }
 
     public LootTable.Builder glowstoneDrops(Block block) {
-        return dropsWithSilkTouch(block, this.applyExplosionDecay(block, ItemEntry.builder(Items.GLOWSTONE_DUST).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2.0F, 4.0F))).apply(ApplyBonusLootFunction.uniformBonusCount(Enchantments.FORTUNE)).apply(LimitCountLootFunction.builder(BoundedIntUnaryOperator.create(1, 4)))));
+        RegistryWrapper.Impl<Enchantment> impl = this.registryLookup.getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
+        return dropsWithSilkTouch(block, this.applyExplosionDecay(block, ItemEntry.builder(Items.GLOWSTONE_DUST).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2.0F, 4.0F))).apply(ApplyBonusLootFunction.uniformBonusCount(impl.getOrThrow(Enchantments.FORTUNE))).apply(LimitCountLootFunction.builder(BoundedIntUnaryOperator.create(1, 4)))));
     }
 
     public LootTable.Builder stickDrops(Block block) {

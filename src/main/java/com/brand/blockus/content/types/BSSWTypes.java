@@ -14,6 +14,10 @@ public class BSSWTypes {
     public final String type;
 
     public BSSWTypes(String type, AbstractBlock.Settings blockSettings) {
+        this(type, blockSettings, true);
+    }
+
+    public BSSWTypes(String type, AbstractBlock.Settings blockSettings, boolean includeWall) {
         Block blockInstance;
         this.type = type;
 
@@ -29,32 +33,53 @@ public class BSSWTypes {
         LIST.add(this);
     }
 
-    public BSSWTypes(String type, Block base, MapColor mapcolor) {
-        this(type, AbstractBlock.Settings.copy(base).mapColor(mapcolor));
-
+    public BSSWTypes(String type, Block base, boolean includeWall) {
+        this(type, AbstractBlock.Settings.copy(base), includeWall);
+        this.base = base;
     }
 
     public BSSWTypes(String type, Block base) {
         this(type, AbstractBlock.Settings.copy(base));
+        this.base = base;
+    }
+
+    public BSSWTypes(String type, Block base, MapColor mapcolor) {
+        this(type, AbstractBlock.Settings.copy(base).mapColor(mapcolor));
+        this.base = base;
+    }
+
+    public BSSWTypes(String type, Block base, MapColor mapcolor, boolean includeWall) {
+        this(type, AbstractBlock.Settings.copy(base).mapColor(mapcolor), includeWall);
+        this.base = base;
     }
 
     public BSSWTypes(String type, Block base, PistonBehavior pistonBehavior) {
         this(type, AbstractBlock.Settings.copy(base).pistonBehavior(pistonBehavior));
+        this.base = base;
     }
 
     public BSSWTypes(String type, Block base, int luminance) {
         this(type, AbstractBlock.Settings.copy(base).luminance((state) -> luminance));
-
+        this.base = base;
     }
 
     public BSSWTypes(String type, Block base, BlockSoundGroup sound) {
         this(type, AbstractBlock.Settings.copy(base).sounds(sound));
+        this.base = base;
+    }
 
+    public BSSWTypes(String type, Block base, BlockSoundGroup sound, boolean includeWall) {
+        this(type, AbstractBlock.Settings.copy(base).sounds(sound), includeWall);
+        this.base = base;
     }
 
     public BSSWTypes(String type, Block base, float hardness, float resistance, MapColor mapcolor) {
         this(type, AbstractBlock.Settings.copy(base).strength(hardness, resistance).mapColor(mapcolor));
+        this.base = base;
+    }
 
+    public BSSWTypes(String type, float hardness, float resistance, MapColor color, boolean includeWall) {
+        this(type, AbstractBlock.Settings.create().mapColor(color).strength(hardness, resistance).sounds(BlockSoundGroup.STONE), includeWall);
     }
 
     public static ArrayList<BSSWTypes> values() {

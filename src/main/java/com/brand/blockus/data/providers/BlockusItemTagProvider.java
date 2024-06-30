@@ -97,7 +97,7 @@ public class BlockusItemTagProvider extends FabricTagProvider.ItemTagProvider {
             .add(BlockusBlocks.HERRINGBONE_BAMBOO_PLANKS.asItem())
             .add(BlockusBlocks.HERRINGBONE_WHITE_OAK_PLANKS.asItem());
 
-        this.copy(new Identifier("c", "planks_that_burn"));
+        this.copy(Identifier.of("c", "planks_that_burn"));
 
         this.copy(BlockTags.ACACIA_LOGS, ItemTags.ACACIA_LOGS);
 
@@ -181,10 +181,10 @@ public class BlockusItemTagProvider extends FabricTagProvider.ItemTagProvider {
         this.copy(BlockTags.DIRT, ItemTags.DIRT);
 
 
-        this.copy(new Identifier("promenade", "cherry_oak_logs"));
-
-        this.copy(new Identifier("promenade", "dark_amaranth_stems"));
-
-        this.copy(new Identifier("promenade", "palm_logs"));
+//        this.copy(new Identifier("promenade", "cherry_oak_logs"));
+//
+//        this.copy(new Identifier("promenade", "dark_amaranth_stems"));
+//
+//        this.copy(new Identifier("promenade", "palm_logs"));
     }
 }

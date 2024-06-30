@@ -9,7 +9,7 @@ import com.brand.blockus.blocks.base.redstone.RedstonePumpkinBlock;
 import com.brand.blockus.blocks.generator.BlockusSaplingGenerator;
 import com.brand.blockus.content.types.*;
 import net.minecraft.block.*;
-import net.minecraft.block.enums.Instrument;
+import net.minecraft.block.enums.NoteBlockInstrument;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.sound.BlockSoundGroup;
@@ -52,11 +52,18 @@ public class BlockusBlocks extends BlocksRegistration {
     public static final Block MUD_BRICK_PILLAR = registerPillar(Blocks.MUD_BRICKS);
 
     // Dripstone
-    public static final BSSTypes POLISHED_DRIPSTONE = new BSSTypes("polished_dripstone", Blocks.DRIPSTONE_BLOCK);
+    public static final BSSWTypes POLISHED_DRIPSTONE = new BSSWTypes("polished_dripstone", Blocks.DRIPSTONE_BLOCK, false);
     public static final BSSWTypes DRIPSTONE_BRICKS = new BSSWTypes("dripstone_bricks", BlockusBlocks.POLISHED_DRIPSTONE.block);
     public static final Block CRACKED_DRIPSTONE_BRICKS = register("cracked_dripstone_bricks", createCopy(BlockusBlocks.DRIPSTONE_BRICKS.block));
     public static final Block CHISELED_DRIPSTONE = register("chiseled_dripstone", createCopy(BlockusBlocks.DRIPSTONE_BRICKS.block));
     public static final Block DRIPSTONE_PILLAR = createPillar("dripstone", BlockusBlocks.DRIPSTONE_BRICKS.block);
+
+    // Tuff
+    public static final BSSWTypes MOSSY_TUFF_BRICKS = new BSSWTypes("mossy_tuff_bricks", Blocks.TUFF_BRICKS);
+    public static final Block CRACKED_TUFF_BRICKS = register("cracked_tuff_bricks", createCopy(Blocks.TUFF_BRICKS));
+    public static final Block CARVED_TUFF_BRICKS = register("carved_tuff_bricks", createCopy(Blocks.TUFF_BRICKS));
+    public static final Block HERRINGBONE_TUFF_BRICKS = register("herringbone_tuff_bricks", createCopy(Blocks.TUFF_BRICKS));
+    public static final Block TUFF_PILLAR = createPillar("tuff", Blocks.POLISHED_TUFF);
 
     // Deepslate
     public static final BSSWTypes MOSSY_DEEPSLATE_BRICKS = new BSSWTypes("mossy_deepslate_bricks", Blocks.DEEPSLATE_BRICKS);
@@ -66,13 +73,13 @@ public class BlockusBlocks extends BlocksRegistration {
     public static final Block STURDY_DEEPSLATE = register("sturdy_deepslate", new Block(Block.Settings.copy(Blocks.COBBLED_DEEPSLATE).pistonBehavior(PistonBehavior.BLOCK)));
 
     // Sculk
-    public static final BSSTypes POLISHED_SCULK = new BSSTypes("polished_sculk", Blocks.POLISHED_DEEPSLATE, MapColor.CYAN);
+    public static final BSSWTypes POLISHED_SCULK = new BSSWTypes("polished_sculk", Blocks.POLISHED_DEEPSLATE, MapColor.CYAN, false);
     public static final BSSWTypes SCULK_BRICKS = new BSSWTypes("sculk_bricks", BlockusBlocks.POLISHED_SCULK.block);
     public static final Block CHISELED_SCULK_BRICKS = register("chiseled_sculk_bricks", createCopy(BlockusBlocks.SCULK_BRICKS.block));
     public static final Block SCULK_PILLAR = createPillar("sculk", BlockusBlocks.SCULK_BRICKS.block);
 
     // Amethyst
-    public static final BSSTypes POLISHED_AMETHYST = new BSSTypes("polished_amethyst", Blocks.AMETHYST_BLOCK);
+    public static final BSSWTypes POLISHED_AMETHYST = new BSSWTypes("polished_amethyst", Blocks.AMETHYST_BLOCK, false);
     public static final BSSWTypes AMETHYST_BRICKS = new BSSWTypes("amethyst_bricks", POLISHED_AMETHYST.block);
     public static final Block CHISELED_AMETHYST = register("chiseled_amethyst", new AmethystBlock(Block.Settings.copy(AMETHYST_BRICKS.block)));
     public static final Block AMETHYST_PILLAR = register("amethyst_pillar", new AmethystPillarBlock(Block.Settings.copy(AMETHYST_BRICKS.block)));
@@ -90,7 +97,7 @@ public class BlockusBlocks extends BlocksRegistration {
 
 
     // Basalt
-    public static final BSSTypes ROUGH_BASALT = new BSSTypes("rough_basalt", Blocks.BASALT);
+    public static final BSSWTypes ROUGH_BASALT = new BSSWTypes("rough_basalt", Blocks.BASALT, false);
     public static final BSSWTypes POLISHED_BASALT_BRICKS = new BSSWTypes("polished_basalt_bricks", Blocks.POLISHED_BASALT);
     public static final Block CRACKED_POLISHED_BASALT_BRICKS = register("cracked_polished_basalt_bricks", createCopy(BlockusBlocks.POLISHED_BASALT_BRICKS.block));
     public static final Block CHISELED_POLISHED_BASALT = register("chiseled_polished_basalt", createCopy(BlockusBlocks.POLISHED_BASALT_BRICKS.block));
@@ -104,7 +111,7 @@ public class BlockusBlocks extends BlocksRegistration {
 
     // Limestone
     public static final BSSWTypes LIMESTONE = new BSSWTypes("limestone", Blocks.STONE, MapColor.OAK_TAN);
-    public static final BSSTypes POLISHED_LIMESTONE = new BSSTypes("polished_limestone", BlockusBlocks.LIMESTONE.block);
+    public static final BSSWTypes POLISHED_LIMESTONE = new BSSWTypes("polished_limestone", BlockusBlocks.LIMESTONE.block, false);
     public static final BSSWTypes LIMESTONE_BRICKS = new BSSWTypes("limestone_bricks", LIMESTONE.block);
     public static final BSSWTypes SMALL_LIMESTONE_BRICKS = new BSSWTypes("small_limestone_bricks", LIMESTONE_BRICKS.block);
     public static final BSSWTypes LIMESTONE_TILES = new BSSWTypes("limestone_tiles", LIMESTONE_BRICKS.block);
@@ -115,7 +122,7 @@ public class BlockusBlocks extends BlocksRegistration {
     public static final Block LIMESTONE_PILLAR = registerPillar(BlockusBlocks.LIMESTONE.block);
     // Marble
     public static final BSSWTypes MARBLE = new BSSWTypes("marble", Blocks.STONE, MapColor.OFF_WHITE);
-    public static final BSSTypes POLISHED_MARBLE = new BSSTypes("polished_marble", BlockusBlocks.MARBLE.block);
+    public static final BSSWTypes POLISHED_MARBLE = new BSSWTypes("polished_marble", BlockusBlocks.MARBLE.block, false);
     public static final BSSWTypes MARBLE_BRICKS = new BSSWTypes("marble_bricks", MARBLE.block);
     public static final BSSWTypes SMALL_MARBLE_BRICKS = new BSSWTypes("small_marble_bricks", MARBLE_BRICKS.block);
     public static final BSSWTypes MARBLE_TILES = new BSSWTypes("marble_tiles", MARBLE_BRICKS.block);
@@ -126,7 +133,7 @@ public class BlockusBlocks extends BlocksRegistration {
     public static final Block MARBLE_PILLAR = registerPillar(BlockusBlocks.MARBLE.block);
     // Bluestone
     public static final BSSWTypes BLUESTONE = new BSSWTypes("bluestone", Blocks.STONE, MapColor.CYAN);
-    public static final BSSTypes POLISHED_BLUESTONE = new BSSTypes("polished_bluestone", BlockusBlocks.BLUESTONE.block);
+    public static final BSSWTypes POLISHED_BLUESTONE = new BSSWTypes("polished_bluestone", BlockusBlocks.BLUESTONE.block, false);
     public static final BSSWTypes BLUESTONE_BRICKS = new BSSWTypes("bluestone_bricks", BLUESTONE.block);
     public static final BSSWTypes SMALL_BLUESTONE_BRICKS = new BSSWTypes("small_bluestone_bricks", BLUESTONE_BRICKS.block);
     public static final BSSWTypes BLUESTONE_TILES = new BSSWTypes("bluestone_tiles", BLUESTONE_BRICKS.block);
@@ -137,7 +144,7 @@ public class BlockusBlocks extends BlocksRegistration {
     public static final Block BLUESTONE_PILLAR = registerPillar(BlockusBlocks.BLUESTONE.block);
     // Viridite
     public static final BSSWTypes VIRIDITE = new BSSWTypes("viridite", Blocks.DEEPSLATE, MapColor.DARK_GREEN);
-    public static final BSSTypes POLISHED_VIRIDITE = new BSSTypes("polished_viridite", BlockusBlocks.VIRIDITE.block);
+    public static final BSSWTypes POLISHED_VIRIDITE = new BSSWTypes("polished_viridite", BlockusBlocks.VIRIDITE.block, false);
     public static final BSSWTypes VIRIDITE_BRICKS = new BSSWTypes("viridite_bricks", VIRIDITE.block);
     public static final BSSWTypes SMALL_VIRIDITE_BRICKS = new BSSWTypes("small_viridite_bricks", VIRIDITE_BRICKS.block);
     public static final BSSWTypes VIRIDITE_TILES = new BSSWTypes("viridite_tiles", VIRIDITE_BRICKS.block);
@@ -182,7 +189,7 @@ public class BlockusBlocks extends BlocksRegistration {
     public static final Block HERRINGBONE_SANDY_BRICKS = register("herringbone_sandy_bricks", createCopy(BlockusBlocks.SANDY_BRICKS.block));
 
     // Sandstone
-    public static final BSSTypes ROUGH_SANDSTONE = new BSSTypes("rough_sandstone", Blocks.SANDSTONE);
+    public static final BSSWTypes ROUGH_SANDSTONE = new BSSWTypes("rough_sandstone", Blocks.SANDSTONE, false);
     public static final BSSWTypes SANDSTONE_BRICKS = new BSSWTypes("sandstone_bricks", Blocks.SANDSTONE);
     public static final BSSWTypes SMALL_SANDSTONE_BRICKS = new BSSWTypes("small_sandstone_bricks", Blocks.SANDSTONE);
     public static final Block SANDSTONE_PILLAR = createPillar("sandstone", Blocks.SANDSTONE);
@@ -190,7 +197,7 @@ public class BlockusBlocks extends BlocksRegistration {
     public static final Block LAPIS_DECORATED_SANDSTONE = register("lapis_decorated_sandstone", createCopy(Blocks.SANDSTONE));
 
     // Red Sandstone
-    public static final BSSTypes ROUGH_RED_SANDSTONE = new BSSTypes("rough_red_sandstone", Blocks.RED_SANDSTONE);
+    public static final BSSWTypes ROUGH_RED_SANDSTONE = new BSSWTypes("rough_red_sandstone", Blocks.RED_SANDSTONE, false);
     public static final BSSWTypes RED_SANDSTONE_BRICKS = new BSSWTypes("red_sandstone_bricks", Blocks.RED_SANDSTONE);
     public static final BSSWTypes SMALL_RED_SANDSTONE_BRICKS = new BSSWTypes("small_red_sandstone_bricks", Blocks.RED_SANDSTONE);
     public static final Block RED_SANDSTONE_PILLAR = createPillar("red_sandstone", Blocks.RED_SANDSTONE);
@@ -210,21 +217,21 @@ public class BlockusBlocks extends BlocksRegistration {
     // Purpur Blocks
     public static final BSSWTypes PURPUR_BRICKS = new BSSWTypes("purpur_bricks", Blocks.PURPUR_BLOCK);
     public static final BSSWTypes SMALL_PURPUR_BRICKS = new BSSWTypes("small_purpur_bricks", Blocks.PURPUR_BLOCK);
-    public static final BSSTypes POLISHED_PURPUR = new BSSTypes("polished_purpur", Blocks.PURPUR_BLOCK);
+    public static final BSSWTypes POLISHED_PURPUR = new BSSWTypes("polished_purpur", Blocks.PURPUR_BLOCK, false);
     public static final Block CHISELED_PURPUR = register("chiseled_purpur", createCopy(BlockusBlocks.PURPUR_BRICKS.block));
     public static final Block PURPUR_SQUARES = register("purpur_squares", createCopy(BlockusBlocks.PURPUR_BRICKS.block));
 
     // Phantom Purpur Blocks
     public static final BSSWTypes PHANTOM_PURPUR_BRICKS = new BSSWTypes("phantom_purpur_bricks", Blocks.PURPUR_BLOCK);
     public static final BSSWTypes SMALL_PHANTOM_PURPUR_BRICKS = new BSSWTypes("small_phantom_purpur_bricks", Blocks.PURPUR_BLOCK);
-    public static final BSSTypes PHANTOM_PURPUR_BLOCK = new BSSTypes("phantom_purpur_block", Blocks.PURPUR_BLOCK);
-    public static final BSSTypes POLISHED_PHANTOM_PURPUR = new BSSTypes("polished_phantom_purpur", Blocks.PURPUR_BLOCK);
+    public static final BSSWTypes PHANTOM_PURPUR_BLOCK = new BSSWTypes("phantom_purpur_block", Blocks.PURPUR_BLOCK, false);
+    public static final BSSWTypes POLISHED_PHANTOM_PURPUR = new BSSWTypes("polished_phantom_purpur", Blocks.PURPUR_BLOCK, false);
     public static final Block PHANTOM_PURPUR_PILLAR = createPillar("phantom_purpur", Blocks.PURPUR_PILLAR);
     public static final Block CHISELED_PHANTOM_PURPUR = register("chiseled_phantom_purpur", createCopy(BlockusBlocks.PHANTOM_PURPUR_BRICKS.block));
     public static final Block PHANTOM_PURPUR_SQUARES = register("phantom_purpur_squares", createCopy(BlockusBlocks.PHANTOM_PURPUR_BRICKS.block));
 
     // End Stone
-    public static final BSSTypes POLISHED_END_STONE = new BSSTypes("polished_end_stone", Blocks.END_STONE);
+    public static final BSSWTypes POLISHED_END_STONE = new BSSWTypes("polished_end_stone", Blocks.END_STONE, false);
     public static final BSSWTypes SMALL_END_STONE_BRICKS = new BSSWTypes("small_end_stone_bricks", Blocks.END_STONE);
     public static final Block CHISELED_END_STONE_BRICKS = register("chiseled_end_stone_bricks", createCopy(Blocks.END_STONE_BRICKS));
     public static final Block HERRINGBONE_END_STONE_BRICKS = register("herringbone_end_stone_bricks", createCopy(Blocks.END_STONE_BRICKS));
@@ -245,18 +252,35 @@ public class BlockusBlocks extends BlocksRegistration {
     public static final WoodTypes WHITE_OAK = new WoodTypes("white_oak", Blocks.OAK_PLANKS, MapColor.OFF_WHITE, BlockSoundGroup.WOOD);
 
     // Mosaics
-    public static final BSSTypes OAK_MOSAIC = new BSSTypes("oak_mosaic", Blocks.OAK_PLANKS);
-    public static final BSSTypes SPRUCE_MOSAIC = new BSSTypes("spruce_mosaic", Blocks.SPRUCE_PLANKS);
-    public static final BSSTypes BIRCH_MOSAIC = new BSSTypes("birch_mosaic", Blocks.BIRCH_PLANKS);
-    public static final BSSTypes JUNGLE_MOSAIC = new BSSTypes("jungle_mosaic", Blocks.JUNGLE_PLANKS);
-    public static final BSSTypes ACACIA_MOSAIC = new BSSTypes("acacia_mosaic", Blocks.ACACIA_PLANKS);
-    public static final BSSTypes DARK_OAK_MOSAIC = new BSSTypes("dark_oak_mosaic", Blocks.DARK_OAK_PLANKS);
-    public static final BSSTypes CHERRY_MOSAIC = new BSSTypes("cherry_mosaic", Blocks.MANGROVE_PLANKS);
-    public static final BSSTypes MANGROVE_MOSAIC = new BSSTypes("mangrove_mosaic", Blocks.MANGROVE_PLANKS);
-    public static final BSSTypes WHITE_OAK_MOSAIC = new BSSTypes("white_oak_mosaic", WHITE_OAK.planks);
-    public static final BSSTypes WARPED_MOSAIC = new BSSTypes("warped_mosaic", Blocks.WARPED_PLANKS);
-    public static final BSSTypes CRIMSON_MOSAIC = new BSSTypes("crimson_mosaic", Blocks.CRIMSON_PLANKS);
+    public static final BSSWTypes OAK_MOSAIC = new BSSWTypes("oak_mosaic", Blocks.OAK_PLANKS, false);
+    public static final BSSWTypes SPRUCE_MOSAIC = new BSSWTypes("spruce_mosaic", Blocks.SPRUCE_PLANKS, false);
+    public static final BSSWTypes BIRCH_MOSAIC = new BSSWTypes("birch_mosaic", Blocks.BIRCH_PLANKS, false);
+    public static final BSSWTypes JUNGLE_MOSAIC = new BSSWTypes("jungle_mosaic", Blocks.JUNGLE_PLANKS, false);
+    public static final BSSWTypes ACACIA_MOSAIC = new BSSWTypes("acacia_mosaic", Blocks.ACACIA_PLANKS, false);
+    public static final BSSWTypes DARK_OAK_MOSAIC = new BSSWTypes("dark_oak_mosaic", Blocks.DARK_OAK_PLANKS, false);
+    public static final BSSWTypes CHERRY_MOSAIC = new BSSWTypes("cherry_mosaic", Blocks.CHERRY_PLANKS, false);
+    public static final BSSWTypes MANGROVE_MOSAIC = new BSSWTypes("mangrove_mosaic", Blocks.MANGROVE_PLANKS, false);
+    public static final BSSWTypes RAW_BAMBOO_MOSAIC = new BSSWTypes("raw_bamboo_mosaic", RAW_BAMBOO.planks, false);
+    public static final BSSWTypes WHITE_OAK_MOSAIC = new BSSWTypes("white_oak_mosaic", WHITE_OAK.planks, false);
+    public static final BSSWTypes WARPED_MOSAIC = new BSSWTypes("warped_mosaic", Blocks.WARPED_PLANKS, false);
+    public static final BSSWTypes CRIMSON_MOSAIC = new BSSWTypes("crimson_mosaic", Blocks.CRIMSON_PLANKS, false);
+    public static final BSSWTypes CHARRED_MOSAIC = new BSSWTypes("charred_mosaic", CHARRED.planks, false);
 
+    // Mossy Planks
+    public static final BSSWTypes MOSSY_OAK_PLANKS = new BSSWTypes("mossy_oak_planks", Blocks.OAK_PLANKS, false);
+    public static final BSSWTypes MOSSY_SPRUCE_PLANKS = new BSSWTypes("mossy_spruce_planks", Blocks.SPRUCE_PLANKS, false);
+    public static final BSSWTypes MOSSY_BIRCH_PLANKS = new BSSWTypes("mossy_birch_planks", Blocks.BIRCH_PLANKS, false);
+    public static final BSSWTypes MOSSY_JUNGLE_PLANKS = new BSSWTypes("mossy_jungle_planks", Blocks.JUNGLE_PLANKS, false);
+    public static final BSSWTypes MOSSY_ACACIA_PLANKS = new BSSWTypes("mossy_acacia_planks", Blocks.ACACIA_PLANKS, false);
+    public static final BSSWTypes MOSSY_DARK_OAK_PLANKS = new BSSWTypes("mossy_dark_oak_planks", Blocks.DARK_OAK_PLANKS, false);
+    public static final BSSWTypes MOSSY_CHERRY_PLANKS = new BSSWTypes("mossy_cherry_planks", Blocks.CHERRY_PLANKS, false);
+    public static final BSSWTypes MOSSY_MANGROVE_PLANKS = new BSSWTypes("mossy_mangrove_planks", Blocks.MANGROVE_PLANKS, false);
+    public static final BSSWTypes MOSSY_BAMBOO_PLANKS = new BSSWTypes("mossy_bamboo_planks", Blocks.BAMBOO_PLANKS, false);
+    public static final BSSWTypes MOSSY_RAW_BAMBOO_PLANKS = new BSSWTypes("mossy_raw_bamboo_planks", RAW_BAMBOO.planks, false);
+    public static final BSSWTypes MOSSY_WHITE_OAK_PLANKS = new BSSWTypes("mossy_white_oak_planks", WHITE_OAK.planks, false);
+    public static final BSSWTypes MOSSY_WARPED_PLANKS = new BSSWTypes("mossy_warped_planks", Blocks.WARPED_PLANKS, false);
+    public static final BSSWTypes MOSSY_CRIMSON_PLANKS = new BSSWTypes("mossy_crimson_planks", Blocks.CRIMSON_PLANKS, false);
+    public static final BSSWTypes MOSSY_CHARRED_PLANKS = new BSSWTypes("mossy_charred_planks", CHARRED.planks, false);
 
     // Herringbone Planks
     public static final Block HERRINGBONE_OAK_PLANKS = register("herringbone_oak_planks", createCopy(Blocks.OAK_PLANKS));
@@ -271,19 +295,6 @@ public class BlockusBlocks extends BlocksRegistration {
     public static final Block HERRINGBONE_WHITE_OAK_PLANKS = register("herringbone_white_oak_planks", createCopy(WHITE_OAK.planks));
     public static final Block HERRINGBONE_WARPED_PLANKS = register("herringbone_warped_planks", createCopy(Blocks.WARPED_PLANKS));
     public static final Block HERRINGBONE_CRIMSON_PLANKS = register("herringbone_crimson_planks", createCopy(Blocks.CRIMSON_PLANKS));
-
-    public static final BSSTypes MOSSY_OAK_PLANKS = new BSSTypes("mossy_oak_planks", Blocks.OAK_PLANKS);
-    public static final BSSTypes MOSSY_SPRUCE_PLANKS = new BSSTypes("mossy_spruce_planks", Blocks.SPRUCE_PLANKS);
-    public static final BSSTypes MOSSY_BIRCH_PLANKS = new BSSTypes("mossy_birch_planks", Blocks.BIRCH_PLANKS);
-    public static final BSSTypes MOSSY_JUNGLE_PLANKS = new BSSTypes("mossy_jungle_planks", Blocks.JUNGLE_PLANKS);
-    public static final BSSTypes MOSSY_ACACIA_PLANKS = new BSSTypes("mossy_acacia_planks", Blocks.ACACIA_PLANKS);
-    public static final BSSTypes MOSSY_DARK_OAK_PLANKS = new BSSTypes("mossy_dark_oak_planks", Blocks.DARK_OAK_PLANKS);
-    public static final BSSTypes MOSSY_CHERRY_PLANKS = new BSSTypes("mossy_cherry_planks", Blocks.CHERRY_PLANKS);
-    public static final BSSTypes MOSSY_MANGROVE_PLANKS = new BSSTypes("mossy_mangrove_planks", Blocks.MANGROVE_PLANKS);
-    public static final BSSTypes MOSSY_BAMBOO_PLANKS = new BSSTypes("mossy_bamboo_planks", Blocks.BAMBOO_PLANKS);
-    public static final BSSTypes MOSSY_WHITE_OAK_PLANKS = new BSSTypes("mossy_white_oak_planks", WHITE_OAK.planks);
-    public static final BSSTypes MOSSY_WARPED_PLANKS = new BSSTypes("mossy_warped_planks", Blocks.WARPED_PLANKS);
-    public static final BSSTypes MOSSY_CRIMSON_PLANKS = new BSSTypes("mossy_crimson_planks", Blocks.CRIMSON_PLANKS);
 
     // Food Blocks
     public static final Block SWEET_BERRIES_CRATE = register("sweet_berries_crate", createCrates());
@@ -336,10 +347,10 @@ public class BlockusBlocks extends BlocksRegistration {
     public static final AsphaltTypes PURPLE_ASPHALT = new AsphaltTypes(DyeColor.PURPLE);
     public static final AsphaltTypes MAGENTA_ASPHALT = new AsphaltTypes(DyeColor.MAGENTA);
     public static final AsphaltTypes PINK_ASPHALT = new AsphaltTypes(DyeColor.PINK);
-    public static final Block RAINBOW_ASPHALT = register("rainbow_asphalt", new RainbowAsphalt(AbstractBlock.Settings.create().mapColor(DyeColor.BLUE).instrument(Instrument.BASEDRUM).strength(1.5f, 6.0f).requiresTool()));
+    public static final Block RAINBOW_ASPHALT = register("rainbow_asphalt", new RainbowAsphalt(AbstractBlock.Settings.create().mapColor(DyeColor.BLUE).instrument(NoteBlockInstrument.BASEDRUM).strength(1.5f, 6.0f).requiresTool()));
 
     // Thatch
-    public static final BSSTypes THATCH = new BSSTypes("thatch", Blocks.HAY_BLOCK);
+    public static final BSSWTypes THATCH = new BSSWTypes("thatch", Blocks.HAY_BLOCK, false);
 
     // Paper
     public static final Block PAPER_BLOCK = register("paper_block", new Block(Block.Settings.create().mapColor(MapColor.OFF_WHITE).strength(0.1f, 0.8f).sounds(BlockSoundGroup.GRASS)));
@@ -348,8 +359,8 @@ public class BlockusBlocks extends BlocksRegistration {
     public static final Block PAPER_LAMP = register("paper_lamp", new PaperLampBlock(Block.Settings.create().mapColor(MapColor.OFF_WHITE).strength(0.1f, 0.8f).sounds(BlockSoundGroup.GRASS).luminance(x -> 15).instrument(Instrument.BASS)));
 
     // Plating
-    public static final BSSTypes IRON_PLATING = new BSSTypes("iron_plating", Blocks.IRON_BLOCK, MapColor.STONE_GRAY);
-    public static final BSSTypes GOLD_PLATING = new BSSTypes("gold_plating", Blocks.GOLD_BLOCK);
+    public static final BSSWTypes IRON_PLATING = new BSSWTypes("iron_plating", Blocks.IRON_BLOCK, MapColor.STONE_GRAY, false);
+    public static final BSSWTypes GOLD_PLATING = new BSSWTypes("gold_plating", Blocks.GOLD_BLOCK, false);
 
     // Lantern Blocks
     public static final Block LANTERN_BLOCK = register("lantern_block", createCopy(Blocks.LANTERN));

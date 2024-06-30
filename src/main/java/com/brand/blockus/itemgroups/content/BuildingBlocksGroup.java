@@ -64,6 +64,12 @@ public class BuildingBlocksGroup {
             entries.add(BlockusBlocks.HERRINGBONE_WARPED_PLANKS);
 
             for (TimberFrameTypes timberFrameType : TimberFrameTypes.values()) {
+                entries.add(timberFrameType.lattice);
+                entries.add(timberFrameType.grate);
+            }
+
+            for (TimberFrameTypes timberFrameType : TimberFrameTypes.values()) {
+                entries.add(timberFrameType.cross);
                 entries.add(timberFrameType.block);
                 entries.add(timberFrameType.diagonal);
                 entries.add(timberFrameType.cross);
@@ -170,6 +176,14 @@ public class BuildingBlocksGroup {
             entries.add(BlockusBlocks.CHISELED_DRIPSTONE);
             entries.add(BlockusBlocks.DRIPSTONE_PILLAR);
 
+            entries.add(BlockusBlocks.POLISHED_TUFF_PRESSURE_PLATE);
+            entries.add(BlockusBlocks.POLISHED_TUFF_BUTTON);
+            entries.add(BlockusBlocks.MOSSY_TUFF_BRICKS.block);
+            entries.add(BlockusBlocks.CRACKED_TUFF_BRICKS);
+            entries.add(BlockusBlocks.CARVED_TUFF_BRICKS);
+            entries.add(BlockusBlocks.HERRINGBONE_TUFF_BRICKS);
+            entries.add(BlockusBlocks.TUFF_PILLAR);
+            entries.add(BlockusBlocks.TUFF_CIRCULAR_PAVING);
 
             entries.add(BlockusBlocks.MOSSY_DEEPSLATE_BRICKS.block);
 
