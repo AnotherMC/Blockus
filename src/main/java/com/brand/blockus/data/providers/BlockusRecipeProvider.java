@@ -26,6 +26,8 @@ import net.minecraft.resource.featuretoggle.FeatureSet;
 
 import java.util.concurrent.CompletableFuture;
 
+import static com.brand.blockus.content.BlockusBlocks.*;
+
 
 public class BlockusRecipeProvider extends FabricRecipeProvider {
 
@@ -40,9 +42,6 @@ public class BlockusRecipeProvider extends FabricRecipeProvider {
         for (BSSWTypes bsswType : BSSWTypes.values()) {
         }
 
-        for (BSSTypes bssType : BSSTypes.values()) {
-        }
-
         for (ConcreteTypes concreteType : ConcreteTypes.values()) {
             offerStonecuttingRecipe(exporter, concreteType.block, concreteType.base);
             offerStonecuttingRecipe(exporter, concreteType.chiseled, concreteType.base, concreteType.block);
@@ -52,7 +51,6 @@ public class BlockusRecipeProvider extends FabricRecipeProvider {
 
         for (TimberFrameTypes timberFrameType : TimberFrameTypes.values()) {
             createTimberFramesRecipes(exporter, timberFrameType.base, timberFrameType.block, timberFrameType.diagonal, timberFrameType.cross);
-            createLatticeRecipes(exporter, timberFrameType.base, timberFrameType.lattice, timberFrameType.grate);
         }
 
         for (AsphaltTypes asphaltTypes : AsphaltTypes.values()) {
@@ -141,9 +139,6 @@ public class BlockusRecipeProvider extends FabricRecipeProvider {
         offerStonecuttingRecipe(exporter, CARVED_TUFF_BRICKS, Blocks.TUFF, Blocks.POLISHED_TUFF, Blocks.TUFF_BRICKS);
         offerStonecuttingRecipe(exporter, TUFF_PILLAR, Blocks.TUFF, Blocks.POLISHED_TUFF, Blocks.TUFF_BRICKS);
         offerStonecuttingRecipe(exporter, HERRINGBONE_TUFF_BRICKS, Blocks.TUFF, Blocks.POLISHED_TUFF, Blocks.TUFF_BRICKS);
-        offerStonecuttingRecipe(exporter, TUFF_CIRCULAR_PAVING, Blocks.TUFF, Blocks.POLISHED_TUFF, Blocks.TUFF_BRICKS);
-
-        offerPressurePlateButtonRecipe(exporter, POLISHED_TUFF_PRESSURE_PLATE, POLISHED_TUFF_BUTTON, Blocks.POLISHED_TUFF);
 
         // Amethyst
         offerStonecuttingRecipe(exporter, BlockusBlocks.POLISHED_AMETHYST.block, Blocks.AMETHYST_BLOCK);

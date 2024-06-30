@@ -28,7 +28,7 @@ public class WoodTypes {
         this.base = base;
         this.burnable = burnable;
 
-        AbstractBlock.Settings blockSettings = AbstractBlock.Settings.create().mapColor(color).instrument(Instrument.BASS).strength(2.0F, 3.0F).sounds(sound).burnable();
+        AbstractBlock.Settings blockSettings = AbstractBlock.Settings.create().mapColor(color).instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).sounds(sound).burnable();
 
         if (burnable) {
             blockSettings = blockSettings.burnable();

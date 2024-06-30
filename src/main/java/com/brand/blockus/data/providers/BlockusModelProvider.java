@@ -42,11 +42,6 @@ public class BlockusModelProvider extends FabricModelProvider {
             }
         }
 
-        for (BSSWTypes bsswType : BSSWTypes.values()) {
-            this.registerBlockStairsSlabAndWall(modelGenerator, bsswType.block);
-        }
-
-
         for (ConcreteTypes concreteType : ConcreteTypes.values()) {
             this.registerBlockStairsSlabAndWall(modelGenerator, concreteType.block);
             modelGenerator.registerSimpleCubeAll(concreteType.chiseled);
@@ -102,8 +97,6 @@ public class BlockusModelProvider extends FabricModelProvider {
         // Tuff
         modelGenerator.registerSimpleCubeAll(BlockusBlocks.CARVED_TUFF_BRICKS);
         modelGenerator.registerSimpleCubeAll(BlockusBlocks.CRACKED_TUFF_BRICKS);
-        this.registerButtonAndPressurePlate(modelGenerator, BlockusBlocks.POLISHED_TUFF_PRESSURE_PLATE, BlockusBlocks.POLISHED_TUFF_BUTTON, Blocks.POLISHED_TUFF);
-        modelGenerator.registerSouthDefaultHorizontalFacing(TexturedModel.TEMPLATE_GLAZED_TERRACOTTA, BlockusBlocks.TUFF_CIRCULAR_PAVING);
         this.registerPillar(modelGenerator, BlockusBlocks.TUFF_PILLAR);
         modelGenerator.registerSimpleCubeAll(BlockusBlocks.HERRINGBONE_TUFF_BRICKS);
 

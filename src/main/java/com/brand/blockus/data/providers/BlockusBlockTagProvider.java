@@ -6,6 +6,7 @@ import com.brand.blockus.content.types.*;
 import com.brand.blockus.utils.tags.BlockusBlockTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.fabricmc.fabric.api.tag.convention.v2.ConventionalBlockTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.registry.RegistryKeys;
@@ -15,6 +16,8 @@ import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 
 import java.util.concurrent.CompletableFuture;
+
+import static com.brand.blockus.content.BlockusBlocks.*;
 
 public class BlockusBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
@@ -453,7 +456,7 @@ public class BlockusBlockTagProvider extends FabricTagProvider.BlockTagProvider 
             .add(CARVED_TUFF_BRICKS)
             .add(HERRINGBONE_TUFF_BRICKS)
             .add(TUFF_PILLAR)
-            .add(TUFF_CIRCULAR_PAVING);
+            ;
 
         this.getOrCreateTagBuilder(BlockusBlockTags.WARPED_NETHER_GRASS)
             .add(Blocks.NETHER_SPROUTS)
@@ -727,6 +730,6 @@ public class BlockusBlockTagProvider extends FabricTagProvider.BlockTagProvider 
 
         // Conventional Block Tags
         this.getOrCreateTagBuilder(ConventionalBlockTags.GLASS_BLOCKS)
-            .addTag(BlockusBlockTags.BEVELED_GLASS);
+            .addOptionalTag(BlockusBlockTags.BEVELED_GLASS);
     }
 }

@@ -4,16 +4,14 @@ import com.brand.blockus.blocks.base.*;
 import com.brand.blockus.blocks.base.amethyst.AmethystPillarBlock;
 import com.brand.blockus.blocks.base.asphalt.RainbowAsphalt;
 import com.brand.blockus.blocks.base.redstone.FallingRedstoneBlock;
-import com.brand.blockus.blocks.base.redstone.RedstoneLantern;
-import com.brand.blockus.blocks.base.redstone.RedstonePumpkinBlock;
 import com.brand.blockus.blocks.generator.BlockusSaplingGenerator;
 import com.brand.blockus.content.types.*;
 import net.minecraft.block.*;
+import static net.minecraft.block.Blocks.*;
 import net.minecraft.block.enums.NoteBlockInstrument;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.util.ColorCode;
 import net.minecraft.util.DyeColor;
 
 public class BlockusBlocks extends BlocksRegistration {
@@ -260,11 +258,9 @@ public class BlockusBlocks extends BlocksRegistration {
     public static final BSSWTypes DARK_OAK_MOSAIC = new BSSWTypes("dark_oak_mosaic", Blocks.DARK_OAK_PLANKS, false);
     public static final BSSWTypes CHERRY_MOSAIC = new BSSWTypes("cherry_mosaic", Blocks.CHERRY_PLANKS, false);
     public static final BSSWTypes MANGROVE_MOSAIC = new BSSWTypes("mangrove_mosaic", Blocks.MANGROVE_PLANKS, false);
-    public static final BSSWTypes RAW_BAMBOO_MOSAIC = new BSSWTypes("raw_bamboo_mosaic", RAW_BAMBOO.planks, false);
     public static final BSSWTypes WHITE_OAK_MOSAIC = new BSSWTypes("white_oak_mosaic", WHITE_OAK.planks, false);
     public static final BSSWTypes WARPED_MOSAIC = new BSSWTypes("warped_mosaic", Blocks.WARPED_PLANKS, false);
     public static final BSSWTypes CRIMSON_MOSAIC = new BSSWTypes("crimson_mosaic", Blocks.CRIMSON_PLANKS, false);
-    public static final BSSWTypes CHARRED_MOSAIC = new BSSWTypes("charred_mosaic", CHARRED.planks, false);
 
     // Mossy Planks
     public static final BSSWTypes MOSSY_OAK_PLANKS = new BSSWTypes("mossy_oak_planks", Blocks.OAK_PLANKS, false);
@@ -276,11 +272,9 @@ public class BlockusBlocks extends BlocksRegistration {
     public static final BSSWTypes MOSSY_CHERRY_PLANKS = new BSSWTypes("mossy_cherry_planks", Blocks.CHERRY_PLANKS, false);
     public static final BSSWTypes MOSSY_MANGROVE_PLANKS = new BSSWTypes("mossy_mangrove_planks", Blocks.MANGROVE_PLANKS, false);
     public static final BSSWTypes MOSSY_BAMBOO_PLANKS = new BSSWTypes("mossy_bamboo_planks", Blocks.BAMBOO_PLANKS, false);
-    public static final BSSWTypes MOSSY_RAW_BAMBOO_PLANKS = new BSSWTypes("mossy_raw_bamboo_planks", RAW_BAMBOO.planks, false);
     public static final BSSWTypes MOSSY_WHITE_OAK_PLANKS = new BSSWTypes("mossy_white_oak_planks", WHITE_OAK.planks, false);
     public static final BSSWTypes MOSSY_WARPED_PLANKS = new BSSWTypes("mossy_warped_planks", Blocks.WARPED_PLANKS, false);
     public static final BSSWTypes MOSSY_CRIMSON_PLANKS = new BSSWTypes("mossy_crimson_planks", Blocks.CRIMSON_PLANKS, false);
-    public static final BSSWTypes MOSSY_CHARRED_PLANKS = new BSSWTypes("mossy_charred_planks", CHARRED.planks, false);
 
     // Herringbone Planks
     public static final Block HERRINGBONE_OAK_PLANKS = register("herringbone_oak_planks", createCopy(Blocks.OAK_PLANKS));
@@ -355,8 +349,8 @@ public class BlockusBlocks extends BlocksRegistration {
     // Paper
     public static final Block PAPER_BLOCK = register("paper_block", new Block(Block.Settings.create().mapColor(MapColor.OFF_WHITE).strength(0.1f, 0.8f).sounds(BlockSoundGroup.GRASS)));
     public static final Block BURNT_PAPER_BLOCK = register("burnt_paper_block", new Block(Block.Settings.create().mapColor(MapColor.STONE_GRAY).strength(0.1f, 0.8f).sounds(BlockSoundGroup.GRASS)));
-    public static final Block FRAMED_PAPER_BLOCK = register("framed_paper_block", new Block(Block.Settings.create().mapColor(MapColor.OFF_WHITE).instrument(Instrument.BASS).strength(0.1f, 0.8f).sounds(BlockSoundGroup.WOOD).burnable()));
-    public static final Block PAPER_LAMP = register("paper_lamp", new PaperLampBlock(Block.Settings.create().mapColor(MapColor.OFF_WHITE).strength(0.1f, 0.8f).sounds(BlockSoundGroup.GRASS).luminance(x -> 15).instrument(Instrument.BASS)));
+    public static final Block FRAMED_PAPER_BLOCK = register("framed_paper_block", new Block(Block.Settings.create().mapColor(MapColor.OFF_WHITE).instrument(NoteBlockInstrument.BASS).strength(0.1f, 0.8f).sounds(BlockSoundGroup.WOOD).burnable()));
+    public static final Block PAPER_LAMP = register("paper_lamp", new PaperLampBlock(Block.Settings.create().mapColor(MapColor.OFF_WHITE).strength(0.1f, 0.8f).sounds(BlockSoundGroup.GRASS).luminance(x -> 15).instrument(NoteBlockInstrument.BASS)));
 
     // Plating
     public static final BSSWTypes IRON_PLATING = new BSSWTypes("iron_plating", Blocks.IRON_BLOCK, MapColor.STONE_GRAY, false);

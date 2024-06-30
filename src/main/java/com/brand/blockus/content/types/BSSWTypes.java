@@ -12,6 +12,7 @@ public class BSSWTypes {
 
     public final Block block;
     public final String type;
+    public Block base;
 
     public BSSWTypes(String type, AbstractBlock.Settings blockSettings) {
         this(type, blockSettings, true);
