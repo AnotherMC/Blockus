@@ -2,16 +2,12 @@ package com.brand.blockus.datagen;
 
 import com.brand.blockus.datagen.providers.*;
 import com.brand.blockus.worldgen.BlockusWorldgenProvider;
-import net.fabricmc.api.EnvType;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.resource.conditions.v1.ResourceCondition;
 import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditions;
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.registry.RegistryBuilder;
 import net.minecraft.registry.RegistryKeys;
-
-import java.lang.reflect.InvocationTargetException;
 
 public class BlockusDatagen implements DataGeneratorEntrypoint {
     @Override
@@ -26,18 +22,8 @@ public class BlockusDatagen implements DataGeneratorEntrypoint {
         pack.addProvider(BlockusBlockLootTableProvider::new);
         pack.addProvider(BlockusWorldgenProvider::new);
         pack.addProvider(BlockusLangEnProvider::new);
+        pack.addProvider(BlockusModelProvider::new);
 //        pack.addProvider(BlockusPromenadeBlockLootTableProvider::new);
-
-        if (FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT) {
-            try {
-                Class<?> clientEntrypointClass = Class.forName("com.brand.blockus.datagen.BlockusDatagenClient");
-                DataGeneratorEntrypoint entrypoint = (DataGeneratorEntrypoint) clientEntrypointClass.getConstructor().newInstance();
-                entrypoint.onInitializeDataGenerator(dataGenerator);
-            } catch (ClassNotFoundException | NoSuchMethodException | InstantiationException | IllegalAccessException |
-                     InvocationTargetException e) {
-                throw new RuntimeException(e);
-            }
-        }
     }
 
     @Override

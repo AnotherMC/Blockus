@@ -8,13 +8,12 @@ import com.brand.blockus.datagen.models.BlockusTextureKey;
 import com.brand.blockus.registry.content.BlockusBlocks;
 import com.brand.blockus.registry.content.BlockusEntities;
 import com.brand.blockus.registry.content.bundles.*;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.data.*;
+import net.minecraft.client.data.BlockStateModelGenerator.CrossType;
 import net.minecraft.client.data.VariantSettings.Rotation;
 import net.minecraft.data.family.BlockFamily;
 import net.minecraft.item.Item;
@@ -1033,22 +1032,12 @@ public class BlockusModelProvider extends FabricModelProvider {
     }
 
     // Tint
-    public final void registerTintableCross(BlockStateModelGenerator modelGenerator, Block block, CrossType crossType) {
-        modelGenerator.registerItemModel(block.asItem(), crossType.registerItemModel(modelGenerator, block));
-        this.registerTintableCrossBlockState(modelGenerator, block, crossType);
-    }
-
-    public final void registerTintableCross(BlockStateModelGenerator modelGenerator, Block block, CrossType tintType, TextureMap texture) {
-        modelGenerator.registerItemModel(block);
-        this.registerTintableCrossBlockState(modelGenerator, block, tintType, texture);
-    }
-
     public final void registerTintableCrossBlockState(BlockStateModelGenerator modelGenerator, Block block, CrossType tintType) {
         TextureMap textureMap = tintType.getTextureMap(block);
-        this.registerTintableCrossBlockState(modelGenerator, block, tintType, textureMap);
+        this.registerTintableCrossBlockState(modelGenerator, block, textureMap);
     }
 
-    public final void registerTintableCrossBlockState(BlockStateModelGenerator modelGenerator, Block block, CrossType tintType, TextureMap crossTexture) {
+    public final void registerTintableCrossBlockState(BlockStateModelGenerator modelGenerator, Block block, TextureMap crossTexture) {
         Identifier identifier = Models.CROSS.upload(block, crossTexture, modelGenerator.modelCollector);
         modelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(block, identifier));
     }
@@ -1063,43 +1052,5 @@ public class BlockusModelProvider extends FabricModelProvider {
         TextureMap textureMap = tintType.getFlowerPotTextureMap(plantBlock);
         Identifier identifier = tintType.getFlowerPotCrossModel().upload(flowerPotBlock, textureMap, modelGenerator.modelCollector);
         modelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(flowerPotBlock, identifier));
-    }
-
-    @Environment(EnvType.CLIENT)
-    enum CrossType {
-        TINTED(Models.TINTED_CROSS, Models.TINTED_FLOWER_POT_CROSS, false),
-        NOT_TINTED(Models.CROSS, Models.FLOWER_POT_CROSS, false),
-        EMISSIVE_NOT_TINTED(Models.CROSS_EMISSIVE, Models.FLOWER_POT_CROSS_EMISSIVE, true);
-
-        private final Model model;
-        private final Model flowerPotModel;
-        private final boolean emissive;
-
-        CrossType(final Model model, final Model flowerPotModel, final boolean emissive) {
-            this.model = model;
-            this.flowerPotModel = flowerPotModel;
-            this.emissive = emissive;
-        }
-
-        public Model getCrossModel() {
-            return this.model;
-        }
-
-        public Model getFlowerPotCrossModel() {
-            return this.flowerPotModel;
-        }
-
-        public Identifier registerItemModel(BlockStateModelGenerator modelGenerator, Block block) {
-            Item item = block.asItem();
-            return this.emissive ? modelGenerator.uploadTwoLayerBlockItemModel(item, block, "_emissive") : modelGenerator.uploadBlockItemModel(item, block);
-        }
-
-        public TextureMap getTextureMap(Block block) {
-            return this.emissive ? TextureMap.crossAndCrossEmissive(block) : TextureMap.cross(block);
-        }
-
-        public TextureMap getFlowerPotTextureMap(Block block) {
-            return this.emissive ? TextureMap.plantAndCrossEmissive(block) : TextureMap.plant(block);
-        }
     }
 }

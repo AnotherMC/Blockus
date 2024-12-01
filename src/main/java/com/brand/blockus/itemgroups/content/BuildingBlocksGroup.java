@@ -6,7 +6,6 @@ import com.brand.blockus.utils.BlockChecker;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.Block;
-import net.minecraft.item.ItemGroups;
 
 import static com.brand.blockus.registry.content.BlockusBlocks.*;
 

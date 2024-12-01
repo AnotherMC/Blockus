@@ -1,5 +1,5 @@
 plugins {
-  id 'fabric-loom' version '1.8-SNAPSHOT'
+  id 'fabric-loom' version '1.9-SNAPSHOT'
   id 'maven-publish'
   id "me.modmuss50.mod-publish-plugin" version "0.7.4"
 }
@@ -42,45 +42,11 @@ dependencies {
   modImplementation "curse.maven:dawnapi-399309:${project.dawn_version}"*/
 }
 
-//fabricApi {
-//  configureDataGeneration()
-//}
-
-sourceSets {
-  main {
-    resources {
-      srcDirs += [
-        "src/main/generated"
-      ]
-    }
+fabricApi {
+  configureDataGeneration {
+    client = true
   }
 }
-
-loom {
-  runs {
-    datagen {
-      server()
-      name "Data Generation"
-
-      vmArg("-Dfabric-api.datagen")
-      vmArg("-Dfabric-api.datagen.output-dir=${file("src/main/generated")}")
-
-      runDir = "build/datagen"
-    }
-
-    datagenClient {
-      client()
-      name "Data Generation Client"
-
-      vmArg("-Dfabric-api.datagen")
-      vmArg("-Dfabric-api.datagen.output-dir=${file("src/main/generated")}")
-
-      runDir = "build/datagen"
-    }
-  }
-}
-
-assemble.dependsOn(runDatagenClient)
 
 processResources {
   inputs.property "version", project.version
