@@ -796,7 +796,7 @@ public class BlockusBlocks extends BlockFactory {
     public static final Block POLISHED_DEEPSLATE_PRESSURE_PLATE = stonePressurePlate(Blocks.POLISHED_DEEPSLATE);
     public static final Block POLISHED_TUFF_PRESSURE_PLATE = stonePressurePlate(Blocks.POLISHED_TUFF);
     public static final Block POLISHED_SCULK_PRESSURE_PLATE = stonePressurePlate(BlockusBlocks.POLISHED_SCULK.block);
-    public static final Block OBSIDIAN_PRESSURE_PLATE = register("obsidian_pressure_plate", ObsidianPressurePlateBlock::new, createCopy(Blocks.OBSIDIAN).solid().noCollision().pistonBehavior(PistonBehavior.DESTROY));
+    public static final Block OBSIDIAN_PRESSURE_PLATE = register("obsidian_pressure_plate", ObsidianPressurePlateBlock::new, createPressurePlateButtonSettings(Blocks.OBSIDIAN).solid());
 
     // Buttons
     public static final Block POLISHED_ANDESITE_BUTTON = stoneButton(Blocks.POLISHED_ANDESITE);

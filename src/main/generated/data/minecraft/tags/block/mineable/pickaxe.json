@@ -123,6 +123,7 @@
     "#blockus:platings",
     "#blockus:large_flower_pots",
     "#blockus:copper_blocks",
+    "#blockus:resin_blocks",
     "#minecraft:stone_pressure_plates",
     "blockus:obsidian_pressure_plate"
   ]

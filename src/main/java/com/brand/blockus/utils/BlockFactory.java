@@ -114,30 +114,36 @@ public class BlockFactory {
     }
 
 
-    // Pressure Plate
+    // Pressure Plate & Button
+    public static AbstractBlock.Settings createPressurePlateButtonSettings(Block base) {
+        return create().mapColor(base.getDefaultMapColor()).strength(0.5f).instrument(base.getDefaultState().getInstrument()).noCollision().pistonBehavior(PistonBehavior.DESTROY);
+    }
+
     public static Block createPressurePlate(String baseId, Block base, BlockSetType blockSetType) {
-        return register(replaceId(baseId) + "_pressure_plate", (settings) -> new PressurePlateBlock(blockSetType, settings), createCopy(base).solid().noCollision().pistonBehavior(PistonBehavior.DESTROY));
+        return register(replaceId(baseId) + "_pressure_plate", (settings) -> new PressurePlateBlock(blockSetType, settings), createPressurePlateButtonSettings(base).solid());
+    }
+
+    public static Block pressurePlate(Block base, BlockSetType blockSetType) {
+        return createPressurePlate(Registries.BLOCK.getId(base).getPath(), base, blockSetType);
     }
 
     public static Block stonePressurePlate(Block base) {
-        return createPressurePlate(Registries.BLOCK.getId(base).getPath(), base, BlockSetType.STONE);
+        return pressurePlate(base, BlockSetType.STONE);
     }
 
-    public static Block woodenPressurePlate(Block base) {
-        return createPressurePlate(Registries.BLOCK.getId(base).getPath(), base, BlockSetType.OAK);
+    public static Block createButton(String baseId, Block base, BlockSetType blockSetType, int pressTicks) {
+        return register(replaceId(baseId) + "_button", (settings) -> new ButtonBlock(blockSetType, pressTicks, settings), createPressurePlateButtonSettings(base));
     }
 
-    // Button
-    public static Block createStoneButton(String id, Block base) {
-        return register(id + "_button", (settings) -> new ButtonBlock(BlockSetType.STONE, 20, settings), createCopy(base).noCollision().pistonBehavior(PistonBehavior.DESTROY));
+    public static Block button(Block base, BlockSetType blockSetType, int pressTicks) {
+        return createButton(Registries.BLOCK.getId(base).getPath(), base, blockSetType, pressTicks);
     }
 
     public static Block stoneButton(Block base) {
-        return createStoneButton(Registries.BLOCK.getId(base).getPath(), base);
+        return button(base, BlockSetType.STONE, 20);
     }
 
     // Plants
-
     public static Block pottedPlant(String id, Block content) {
         return registerNoItem(id, (settings) -> new FlowerPotBlock(content, settings), create().instrument(NoteBlockInstrument.BASEDRUM).breakInstantly().pistonBehavior(PistonBehavior.DESTROY).nonOpaque());
     }
@@ -160,7 +166,7 @@ public class BlockFactory {
     }
 
     public static Block stoneDoor(String id, float hardness, float resistance, BlockSoundGroup sound, MapColor color, BlockSetType blockSetType) {
-        return register(id, (settings) -> new DoorBlock(blockSetType, settings), createDoorTrapdoorBlockSettings(hardness, resistance, sound, color, NoteBlockInstrument.BASEDRUM).requiresTool());
+        return register(id, (settings) -> new DoorBlock(blockSetType, settings), createDoorTrapdoorBlockSettings(hardness, resistance, sound, color, NoteBlockInstrument.BASEDRUM));
     }
 
     public static Block woodenTrapdoor(String id, float hardness, float resistance, BlockSoundGroup sound, MapColor color, BlockSetType blockSetType) {

@@ -817,6 +817,7 @@ public class BlockusBlockTagProvider extends FabricTagProvider.BlockTagProvider 
             .addTag(BlockusBlockTags.PLATINGS)
             .addTag(BlockusBlockTags.LARGE_FLOWER_POTS)
             .addTag(BlockusBlockTags.COPPER_BLOCKS)
+            .addTag(BlockusBlockTags.RESIN_BLOCKS)
             .addTag(BlockTags.STONE_PRESSURE_PLATES)
             .add(OBSIDIAN_PRESSURE_PLATE);
 

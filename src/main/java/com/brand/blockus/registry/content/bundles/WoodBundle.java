@@ -39,7 +39,7 @@ public class WoodBundle {
     public final Item hanging_sign;
     public boolean burnable;
 
-    public WoodBundle(String type, Block base, MapColor color, BlockSoundGroup sound, WoodType woodtype, BlockSetType blocksettype, boolean burnable) {
+    public WoodBundle(String type, Block base, MapColor color, BlockSoundGroup sound, WoodType woodtype, BlockSetType blockSetType, boolean burnable) {
 
         this.base = base;
         this.burnable = burnable;
@@ -59,10 +59,10 @@ public class WoodBundle {
         this.slab = BlockFactory.registerSlab(this.planks);
         this.fence = BlockFactory.register(type + "_fence", FenceBlock::new, BlockFactory.createCopy(base));
         this.fence_gate = BlockFactory.register(type + "_fence_gate", (settings) -> new FenceGateBlock(woodtype, settings), BlockFactory.createCopy(base));
-        this.door = BlockFactory.register(type + "_door", (settings) -> new DoorBlock(blocksettype, settings), doorTrapdoorSettings);
-        this.trapdoor = BlockFactory.register(type + "_trapdoor", (settings) -> new TrapdoorBlock(blocksettype, settings), doorTrapdoorSettings);
-        this.pressure_plate = BlockFactory.woodenPressurePlate(this.planks);
-        this.button = BlockFactory.register(type + "_button", (settings) -> new ButtonBlock(blocksettype, 30, settings), AbstractBlock.Settings.copy(planks).noCollision());
+        this.door = BlockFactory.register(type + "_door", (settings) -> new DoorBlock(blockSetType, settings), doorTrapdoorSettings);
+        this.trapdoor = BlockFactory.register(type + "_trapdoor", (settings) -> new TrapdoorBlock(blockSetType, settings), doorTrapdoorSettings);
+        this.pressure_plate = BlockFactory.pressurePlate(this.planks, blockSetType);
+        this.button = BlockFactory.button(this.planks, blockSetType, 30);
 
         // sign
         Identifier signPath = Blockus.id("entity/signs/" + type);
@@ -80,8 +80,8 @@ public class WoodBundle {
 
     }
 
-    public WoodBundle(String type, Block base, MapColor color, BlockSoundGroup sound, net.minecraft.block.WoodType woodtype, BlockSetType blocksettype) {
-        this(type, base, color, sound, woodtype, blocksettype, true);
+    public WoodBundle(String type, Block base, MapColor color, BlockSoundGroup sound, net.minecraft.block.WoodType woodtype, BlockSetType blockSetType) {
+        this(type, base, color, sound, woodtype, blockSetType, true);
     }
 
     public WoodBundle(String type, Block base, MapColor color, BlockSoundGroup sound) {
