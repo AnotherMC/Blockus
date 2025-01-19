@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "blockus:purple_asphalt",
-  "result": {
-    "count": 2,
-    "id": "blockus:purple_asphalt_slab"
-  }
-}

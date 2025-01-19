@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "blockus",
   "version": "${version}",
-  "name": "Blockus",
+  "name": "Blockus: Polymania Edition",
   "description": "A mod that mainly adds blocks!",
   "authors": [
     "Brandcraft"
@@ -12,9 +12,7 @@
     "haykam821"
   ],
   "contact": {
-    "homepage": "https://www.curseforge.com/minecraft/mc-mods/blockus",
-    "sources": "https://github.com/Brandcraf06/Blockus",
-    "issues": "https://github.com/Brandcraf06/Blockus/issues"
+    "sources": "https://github.com/PolymaniaForks/Blockus"
   },
   "license": "GPLv3",
   "icon": "assets/blockus/icon.png",
@@ -38,10 +36,5 @@
     "fabric-api": "*",
     "minecraft": "~1.21.4",
     "java": ">=21"
-  },
-  "suggests": {
-    "columns": "*",
-    "promenade": "*",
-    "farmingforblockheads": "*"
   }
 }

@@ -13,13 +13,7 @@ import java.util.ArrayList;
 public class CopperBundle {
     public static final ArrayList<CopperBundle> LIST = new ArrayList<>();
     public Block block;
-    public Block slab;
-    public Block stairs;
-    public Block wall;
     public Block blockWaxed;
-    public Block slabWaxed;
-    public Block stairsWaxed;
-    public Block wallWaxed;
     public final String type;
     public final Block base;
 
@@ -50,13 +44,8 @@ public class CopperBundle {
         this.type = type;
         this.base = base;
         this.block = BlockFactory.register(oxidation.getName() + type, (settings) -> new OxidizableBlock(oxidation.getLevel(), settings), BlockFactory.createCopy(base));
-        this.slab = BlockFactory.register(oxidation.getName() + BlockFactory.replaceId(type) + "_slab", (settings) -> new OxidizableSlabBlock(oxidation.getLevel(), settings), BlockFactory.createCopy(base));
-        this.stairs = BlockFactory.register(oxidation.getName() + BlockFactory.replaceId(type) + "_stairs", (settings) -> new OxidizableStairsBlock(oxidation.getLevel(), base.getDefaultState(), settings), BlockFactory.createCopy(base));
-        this.wall = BlockFactory.register(oxidation.getName() + BlockFactory.replaceId(type) + "_wall", (settings) -> new OxidizableWallBlock(oxidation.getLevel(), settings), BlockFactory.createCopy(base));
         this.blockWaxed = BlockFactory.register("waxed_" + oxidation.getName() + type, BlockFactory.createCopy(base));
-        this.slabWaxed = BlockFactory.registerSlab(blockWaxed);
-        this.stairsWaxed = BlockFactory.registerStairs(blockWaxed);
-        this.wallWaxed = BlockFactory.registerWall(blockWaxed);
+
 
 
         LIST.add(this);
@@ -70,27 +59,15 @@ public class CopperBundle {
         return new Block[]{block, blockWaxed};
     }
 
-    public Block[] slabs() {
-        return new Block[]{slab, slabWaxed};
-    }
-
-    public Block[] stairs() {
-        return new Block[]{stairs, stairsWaxed};
-    }
-
-    public Block[] walls() {
-        return new Block[]{wall, wallWaxed};
-    }
-
     public Block[] unwaxed() {
-        return new Block[]{block, stairs, slab, wall};
+        return new Block[]{block};
     }
 
     public Block[] waxed() {
-        return new Block[]{blockWaxed, stairsWaxed, slabWaxed, wallWaxed};
+        return new Block[]{blockWaxed};
     }
 
     public Block[] all() {
-        return new Block[]{block, stairs, slab, wall, blockWaxed, stairsWaxed, slabWaxed, wallWaxed};
+        return new Block[]{block, blockWaxed };
     }
 }

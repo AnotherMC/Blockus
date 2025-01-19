@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "blockus:netherite_bricks",
-  "result": {
-    "count": 1,
-    "id": "blockus:netherite_brick_stairs"
-  }
-}

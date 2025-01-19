@@ -13,10 +13,5 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(RedstoneWireBlock.class)
 public class RedstoneWireBlockMixin {
 
-    @Inject(method = "connectsTo(Lnet/minecraft/block/BlockState;Lnet/minecraft/util/math/Direction;)Z", at = @At("RETURN"), cancellable = true)
-    private static void ConnectsTo(BlockState state, Direction dir, CallbackInfoReturnable<Boolean> ci) {
-        if (state.isOf(BlockusBlocks.REDSTONE_O_LANTERN)) {
-            ci.setReturnValue(dir == state.get(CarvedPumpkinBlock.FACING).getOpposite());
-        }
-    }
+
 }

@@ -41,8 +41,6 @@ public class BlockusWorldgenProvider extends FabricDynamicRegistryProvider {
         entries.add(registries.getOrThrow(RegistryKeys.PLACED_FEATURE), BlockusWorldgenFeatures.PLACED_WHITE_OAK);
         entries.add(registries.getOrThrow(RegistryKeys.PLACED_FEATURE), BlockusWorldgenFeatures.PLACED_WHITE_OAK_RARE);
         entries.add(registries.getOrThrow(RegistryKeys.PLACED_FEATURE), BlockusWorldgenFeatures.WHITE_OAK_CHECKED);
-        entries.add(registries.getOrThrow(RegistryKeys.CONFIGURED_FEATURE), BlockusWorldgenFeatures.LEGACY_OAK);
-        entries.add(registries.getOrThrow(RegistryKeys.PLACED_FEATURE), BlockusWorldgenFeatures.LEGACY_OAK_CHECKED);
         entries.add(registries.getOrThrow(RegistryKeys.CONFIGURED_FEATURE), BlockusWorldgenFeatures.RAINBOW_ROSE);
         entries.add(registries.getOrThrow(RegistryKeys.PLACED_FEATURE), BlockusWorldgenFeatures.PLACED_RAINBOW_ROSE);
     }
@@ -54,7 +52,6 @@ public class BlockusWorldgenProvider extends FabricDynamicRegistryProvider {
         ConfiguredFeatures.register(registerable, BlockusWorldgenFeatures.VIRIDITE, Feature.ORE, new OreFeatureConfig(new TagMatchRuleTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES), BlockusBlocks.VIRIDITE.block.getDefaultState(), 33));
         ConfiguredFeatures.register(registerable, BlockusWorldgenFeatures.VIRIDITE_EXTRA, Feature.ORE, new OreFeatureConfig(new TagMatchRuleTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES), BlockusBlocks.VIRIDITE.block.getDefaultState(), 42));
         ConfiguredFeatures.register(registerable, BlockusWorldgenFeatures.WHITE_OAK, Feature.TREE, BlockusWorldgenFeatures.white_oak().build());
-        ConfiguredFeatures.register(registerable, BlockusWorldgenFeatures.LEGACY_OAK, Feature.TREE, BlockusWorldgenFeatures.legacy_oak().build());
         ConfiguredFeatures.register(registerable, BlockusWorldgenFeatures.RAINBOW_ROSE, Feature.FLOWER, new RandomPatchFeatureConfig(12, 7, 2, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(BlockusBlocks.RAINBOW_ROSE)))));
     }
 
@@ -85,10 +82,6 @@ public class BlockusWorldgenProvider extends FabricDynamicRegistryProvider {
         PlacedFeatures.register(registerable, BlockusWorldgenFeatures.PLACED_WHITE_OAK, whiteOak, RarityFilterPlacementModifier.of(32), SquarePlacementModifier.of(), SurfaceWaterDepthFilterPlacementModifier.of(0), PlacedFeatures.OCEAN_FLOOR_HEIGHTMAP, BiomePlacementModifier.of(), BlockFilterPlacementModifier.of(BlockPredicate.wouldSurvive(BlockusBlocks.WHITE_OAK_SAPLING.getDefaultState(), BlockPos.ORIGIN)));
         PlacedFeatures.register(registerable, BlockusWorldgenFeatures.PLACED_WHITE_OAK_RARE, whiteOak, RarityFilterPlacementModifier.of(192), SquarePlacementModifier.of(), SurfaceWaterDepthFilterPlacementModifier.of(0), PlacedFeatures.OCEAN_FLOOR_HEIGHTMAP, BiomePlacementModifier.of(), BlockFilterPlacementModifier.of(BlockPredicate.wouldSurvive(BlockusBlocks.WHITE_OAK_SAPLING.getDefaultState(), BlockPos.ORIGIN)));
         PlacedFeatures.register(registerable, BlockusWorldgenFeatures.WHITE_OAK_CHECKED, whiteOak, PlacedFeatures.wouldSurvive(BlockusBlocks.WHITE_OAK_SAPLING));
-
-        // legacy oak
-        RegistryEntry<ConfiguredFeature<?, ?>> legacyOak = configuredFeatures.getOrThrow(BlockusWorldgenFeatures.LEGACY_OAK);
-        PlacedFeatures.register(registerable, BlockusWorldgenFeatures.LEGACY_OAK_CHECKED, legacyOak, PlacedFeatures.wouldSurvive(BlockusBlocks.LEGACY_SAPLING));
 
         // rainbow rose
         RegistryEntry<ConfiguredFeature<?, ?>> rainbowRose = configuredFeatures.getOrThrow(BlockusWorldgenFeatures.RAINBOW_ROSE);

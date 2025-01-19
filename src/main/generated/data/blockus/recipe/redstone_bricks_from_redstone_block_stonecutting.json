@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "minecraft:redstone_block",
-  "result": {
-    "count": 1,
-    "id": "blockus:redstone_bricks"
-  }
-}

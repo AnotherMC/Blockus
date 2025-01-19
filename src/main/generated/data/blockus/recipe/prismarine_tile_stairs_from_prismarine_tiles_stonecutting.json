@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "blockus:prismarine_tiles",
-  "result": {
-    "count": 1,
-    "id": "blockus:prismarine_tile_stairs"
-  }
-}

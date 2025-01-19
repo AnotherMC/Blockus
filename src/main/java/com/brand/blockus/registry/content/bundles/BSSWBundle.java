@@ -12,9 +12,6 @@ import java.util.function.Function;
 public class BSSWBundle {
     public static final ArrayList<BSSWBundle> LIST = new ArrayList<>();
     public final Block block;
-    public final Block slab;
-    public final Block stairs;
-    public final Block wall; // Nullable
     public final String type;
     public Block base;
 
@@ -35,9 +32,6 @@ public class BSSWBundle {
         }
 
         this.block = BlockFactory.register(type, factory, blockSettings);
-        this.slab = BlockFactory.registerSlab(this.block);
-        this.stairs = BlockFactory.registerStairs(this.block);
-        this.wall = includeWall ? BlockFactory.registerWall(this.block) : null;
 
         LIST.add(this);
     }

@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "minecraft:exposed_copper",
-  "result": {
-    "count": 8,
-    "id": "blockus:exposed_copper_brick_slab"
-  }
-}

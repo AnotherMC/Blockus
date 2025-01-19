@@ -5,12 +5,12 @@ import com.brand.blockus.itemgroups.content.*;
 import com.brand.blockus.registry.content.BlockusBlocks;
 import com.brand.blockus.registry.content.BlockusEntities;
 import com.brand.blockus.registry.content.BlockusItems;
-import com.brand.blockus.registry.content.bundles.ColoredTilesBundle;
 import com.brand.blockus.registry.effect.BlockusEffects;
 import com.brand.blockus.worldgen.BlockusWorldgenFeatures;
 import com.brand.blockus.worldgen.foliage.BlockusFoliagePlacerType;
 import com.google.common.reflect.Reflection;
 import net.fabricmc.api.ModInitializer;
+import net.minecraft.registry.Registries;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
@@ -33,7 +33,6 @@ public class Blockus implements ModInitializer {
         Reflection.initialize(BlockusBlocks.class);
         Reflection.initialize(BlockusItems.class);
         Reflection.initialize(BlockusEntities.class);
-        Reflection.initialize(ColoredTilesBundle.class);
         Reflection.initialize(BlockusEffects.class);
         Reflection.initialize(BlockusFoliagePlacerType.class);
 
@@ -51,6 +50,8 @@ public class Blockus implements ModInitializer {
         Instance.init();
         BlockusWorldgenFeatures.registerConfiguredFeature();
 
+        Registries.ITEM.addAlias(id("white_oak_planks"), Identifier.ofVanilla("pale_oak_planks"));
+        Registries.BLOCK.addAlias(id("white_oak_planks"), Identifier.ofVanilla("pale_oak_planks"));
     }
 
     public static Text STEPPED_ON_TEXT = Text.translatable(Util.createTranslationKey("blockitem", Blockus.id("when_stepped_on"))).formatted(Formatting.GRAY);

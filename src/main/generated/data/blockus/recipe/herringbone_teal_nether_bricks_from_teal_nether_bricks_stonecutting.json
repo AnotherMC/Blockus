@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "blockus:teal_nether_bricks",
-  "result": {
-    "count": 1,
-    "id": "blockus:herringbone_teal_nether_bricks"
-  }
-}

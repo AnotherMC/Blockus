@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "minecraft:sponge",
-  "result": {
-    "count": 1,
-    "id": "blockus:legacy_sponge"
-  }
-}

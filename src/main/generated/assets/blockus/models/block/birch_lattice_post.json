@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/template_glass_pane_post",
-  "textures": {
-    "edge": "blockus:block/birch_lattice_top",
-    "pane": "blockus:block/birch_grate"
-  }
-}

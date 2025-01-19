@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "blockus:honeycomb_bricks",
-  "result": {
-    "count": 1,
-    "id": "blockus:honeycomb_brick_stairs"
-  }
-}

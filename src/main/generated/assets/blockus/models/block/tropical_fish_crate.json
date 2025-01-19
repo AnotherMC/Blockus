@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cube_bottom_top",
-  "textures": {
-    "bottom": "blockus:block/fish_crate_bottom",
-    "side": "blockus:block/fish_crate_side",
-    "top": "blockus:block/tropical_fish_crate"
-  }
-}

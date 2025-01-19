@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "blockus:netherrack_bricks",
-  "result": {
-    "count": 1,
-    "id": "blockus:netherrack_circular_paving"
-  }
-}

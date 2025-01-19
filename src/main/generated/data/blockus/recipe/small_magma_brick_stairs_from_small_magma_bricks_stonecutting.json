@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "blockus:small_magma_bricks",
-  "result": {
-    "count": 1,
-    "id": "blockus:small_magma_brick_stairs"
-  }
-}

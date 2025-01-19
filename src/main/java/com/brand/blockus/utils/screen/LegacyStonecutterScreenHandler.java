@@ -114,7 +114,7 @@ public class LegacyStonecutterScreenHandler extends ScreenHandler {
     }
 
     public boolean canUse(PlayerEntity player) {
-        return canUse(this.context, player, BlockusBlocks.LEGACY_STONECUTTER);
+        return canUse(this.context, player, null);
     }
 
     public boolean onButtonClick(PlayerEntity player, int id) {

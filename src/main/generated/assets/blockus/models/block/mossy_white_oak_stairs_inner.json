@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "blockus:block/mossy_white_oak_planks",
-    "side": "blockus:block/mossy_white_oak_planks",
-    "top": "blockus:block/mossy_white_oak_planks"
-  }
-}

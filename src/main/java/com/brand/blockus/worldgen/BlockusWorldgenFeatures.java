@@ -47,20 +47,12 @@ public class BlockusWorldgenFeatures {
     public static final RegistryKey<PlacedFeature> PLACED_WHITE_OAK_RARE = RegistryKey.of(RegistryKeys.PLACED_FEATURE, Blockus.id("white_oak_rare"));
     public static final RegistryKey<PlacedFeature> WHITE_OAK_CHECKED = RegistryKey.of(RegistryKeys.PLACED_FEATURE, Blockus.id("white_oak_checked"));
 
-    public static final RegistryKey<ConfiguredFeature<?, ?>> LEGACY_OAK = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, Blockus.id("legacy_oak"));
-    public static final RegistryKey<PlacedFeature> LEGACY_OAK_CHECKED = RegistryKey.of(RegistryKeys.PLACED_FEATURE, Blockus.id("legacy_oak_checked"));
-
-
     public static final RegistryKey<ConfiguredFeature<?, ?>> RAINBOW_ROSE = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, Blockus.id("rainbow_rose"));
     public static final RegistryKey<PlacedFeature> PLACED_RAINBOW_ROSE = RegistryKey.of(RegistryKeys.PLACED_FEATURE, Blockus.id("rainbow_rose"));
 
 
     public static TreeFeatureConfig.Builder white_oak() {
         return new TreeFeatureConfig.Builder(BlockStateProvider.of(BlockusBlocks.WHITE_OAK_LOG), new StraightTrunkPlacer(7, 1, 0), BlockStateProvider.of(BlockusBlocks.WHITE_OAK_LEAVES), new WhiteOakFoliagePlacer(ConstantIntProvider.create(4), ConstantIntProvider.create(0), ConstantIntProvider.create(6), 0.33F, 0.25F, 0.25F, 0.50F), new TwoLayersFeatureSize(1, 0, 1)).ignoreVines();
-    }
-
-    public static TreeFeatureConfig.Builder legacy_oak() {
-        return new TreeFeatureConfig.Builder(BlockStateProvider.of(BlockusBlocks.LEGACY_LOG), new StraightTrunkPlacer(4, 2, 0), BlockStateProvider.of(BlockusBlocks.LEGACY_LEAVES), new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3), new TwoLayersFeatureSize(1, 0, 1)).decorators(ImmutableList.of(new AlterGroundTreeDecorator(BlockStateProvider.of(BlockusBlocks.LEGACY_GRASS_BLOCK))));
     }
 
     public static void registerConfiguredFeature() {
