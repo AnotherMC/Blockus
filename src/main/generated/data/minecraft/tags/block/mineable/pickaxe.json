@@ -1,0 +1,208 @@
+{
+  "values": [
+    "blockus:charcoal_block",
+    "blockus:ender_block",
+    "blockus:nether_stars_block",
+    "blockus:love_block",
+    "blockus:weight_storage_cube",
+    "blockus:companion_cube",
+    "blockus:caution_block",
+    "blockus:stars_block",
+    "blockus:lantern_block",
+    "blockus:soul_lantern_block",
+    "blockus:crimson_wart_bricks",
+    "blockus:warped_wart_bricks",
+    "blockus:nether_tiles",
+    "blockus:end_tiles",
+    "blockus:chiseled_mud_bricks",
+    "blockus:mud_brick_pillar",
+    {
+      "id": "#blockus:amethyst_blocks",
+      "required": false
+    },
+    {
+      "id": "#blockus:obsidian",
+      "required": false
+    },
+    {
+      "id": "#blockus:stained_stone_bricks",
+      "required": false
+    },
+    {
+      "id": "#blockus:marble",
+      "required": false
+    },
+    {
+      "id": "#blockus:limestone",
+      "required": false
+    },
+    {
+      "id": "#blockus:bluestone",
+      "required": false
+    },
+    {
+      "id": "#blockus:viridite",
+      "required": false
+    },
+    {
+      "id": "#blockus:purpur_blocks",
+      "required": false
+    },
+    {
+      "id": "#blockus:quartz_blocks",
+      "required": false
+    },
+    {
+      "id": "#blockus:sandstone",
+      "required": false
+    },
+    {
+      "id": "#blockus:red_sandstone",
+      "required": false
+    },
+    {
+      "id": "#blockus:soul_sandstone",
+      "required": false
+    },
+    {
+      "id": "#blockus:stone_blocks",
+      "required": false
+    },
+    {
+      "id": "#blockus:andesite_blocks",
+      "required": false
+    },
+    {
+      "id": "#blockus:diorite_blocks",
+      "required": false
+    },
+    {
+      "id": "#blockus:granite_blocks",
+      "required": false
+    },
+    {
+      "id": "#blockus:blackstone_blocks",
+      "required": false
+    },
+    {
+      "id": "#blockus:basalt_blocks",
+      "required": false
+    },
+    {
+      "id": "#blockus:lava_bricks",
+      "required": false
+    },
+    {
+      "id": "#blockus:lava_polished_blackstone_bricks",
+      "required": false
+    },
+    {
+      "id": "#blockus:water_bricks",
+      "required": false
+    },
+    {
+      "id": "#blockus:snow_bricks",
+      "required": false
+    },
+    {
+      "id": "#blockus:ice_bricks",
+      "required": false
+    },
+    {
+      "id": "#blockus:magma_bricks",
+      "required": false
+    },
+    {
+      "id": "#blockus:blaze_bricks",
+      "required": false
+    },
+    {
+      "id": "#blockus:netherrack_blocks",
+      "required": false
+    },
+    {
+      "id": "#blockus:nether_bricks",
+      "required": false
+    },
+    {
+      "id": "#blockus:prismarine_blocks",
+      "required": false
+    },
+    {
+      "id": "#blockus:bricks_blocks",
+      "required": false
+    },
+    {
+      "id": "#blockus:honeycomb_blocks",
+      "required": false
+    },
+    {
+      "id": "#blockus:end_stone_blocks",
+      "required": false
+    },
+    {
+      "id": "#blockus:rainbow_blocks",
+      "required": false
+    },
+    {
+      "id": "#blockus:concrete_blocks",
+      "required": false
+    },
+    {
+      "id": "#blockus:deepslate_blocks",
+      "required": false
+    },
+    {
+      "id": "#blockus:sculk_blocks",
+      "required": false
+    },
+    {
+      "id": "#blockus:tuff_blocks",
+      "required": false
+    },
+    {
+      "id": "#blockus:dripstone_blocks",
+      "required": false
+    },
+    {
+      "id": "#blockus:chocolate_blocks",
+      "required": false
+    },
+    {
+      "id": "#blockus:asphalt",
+      "required": false
+    },
+    {
+      "id": "#blockus:shingles",
+      "required": false
+    },
+    {
+      "id": "#blockus:colored_tiles",
+      "required": false
+    },
+    {
+      "id": "#blockus:glazed_terracotta_pillars",
+      "required": false
+    },
+    {
+      "id": "#blockus:platings",
+      "required": false
+    },
+    {
+      "id": "#blockus:large_flower_pots",
+      "required": false
+    },
+    {
+      "id": "#blockus:copper_blocks",
+      "required": false
+    },
+    {
+      "id": "#blockus:resin_blocks",
+      "required": false
+    },
+    {
+      "id": "#minecraft:stone_pressure_plates",
+      "required": false
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "blockus:rotten_flesh_block"
+  ],
+  "result": {
+    "count": 9,
+    "id": "minecraft:rotten_flesh"
+  }
+}

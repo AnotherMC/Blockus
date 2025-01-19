@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mossy_jungle_planks",
+  "ingredients": [
+    "minecraft:jungle_planks",
+    "minecraft:vine"
+  ],
+  "result": {
+    "count": 1,
+    "id": "blockus:mossy_jungle_planks"
+  }
+}

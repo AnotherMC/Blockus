@@ -1,0 +1,13 @@
+{
+  "values": [
+    {
+      "id": "#blockus:netherrack_blocks",
+      "required": false
+    },
+    {
+      "id": "#blockus:magma_bricks",
+      "required": false
+    },
+    "blockus:charcoal_block"
+  ]
+}

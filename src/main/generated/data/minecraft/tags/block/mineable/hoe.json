@@ -1,0 +1,15 @@
+{
+  "values": [
+    "blockus:rotten_flesh_block",
+    "blockus:chorus_block",
+    "blockus:white_oak_leaves",
+    {
+      "id": "#blockus:thatch",
+      "required": false
+    },
+    {
+      "id": "#blockus:small_hedges",
+      "required": false
+    }
+  ]
+}

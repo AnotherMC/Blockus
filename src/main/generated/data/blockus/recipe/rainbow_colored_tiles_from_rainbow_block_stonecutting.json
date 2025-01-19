@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "blockus:rainbow_block",
+  "result": {
+    "count": 1,
+    "id": "blockus:rainbow_colored_tiles"
+  }
+}

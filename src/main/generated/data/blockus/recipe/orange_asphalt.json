@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "asphalt",
+  "key": {
+    "#": "minecraft:orange_dye",
+    "X": "blockus:asphalt"
+  },
+  "pattern": [
+    "XXX",
+    "X#X",
+    "XXX"
+  ],
+  "result": {
+    "count": 8,
+    "id": "blockus:orange_asphalt"
+  }
+}

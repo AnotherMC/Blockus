@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "minecraft:purpur_pillar",
+    "#blockus:soul_soils"
+  ],
+  "result": {
+    "count": 1,
+    "id": "blockus:phantom_purpur_pillar"
+  }
+}

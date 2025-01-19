@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "rainbow_glowstone",
+  "ingredients": [
+    "blockus:rainbow_petal",
+    "minecraft:glowstone"
+  ],
+  "result": {
+    "count": 1,
+    "id": "blockus:rainbow_glowstone"
+  }
+}

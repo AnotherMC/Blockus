@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "colored_tiles",
+  "ingredients": [
+    "minecraft:brown_concrete",
+    "minecraft:brown_concrete"
+  ],
+  "result": {
+    "count": 2,
+    "id": "blockus:brown_colored_tiles"
+  }
+}

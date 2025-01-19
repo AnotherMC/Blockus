@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "blockus:bread_box"
+  ],
+  "result": {
+    "count": 9,
+    "id": "minecraft:bread"
+  }
+}

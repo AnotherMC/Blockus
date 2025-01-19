@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "blockus:polished_phantom_purpur",
+  "result": {
+    "count": 1,
+    "id": "blockus:chiseled_phantom_purpur"
+  }
+}

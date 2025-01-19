@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "herringbone_planks",
+  "key": {
+    "#": "minecraft:pale_oak_planks"
+  },
+  "pattern": [
+    "#  ",
+    "###",
+    "  #"
+  ],
+  "result": {
+    "count": 5,
+    "id": "blockus:herringbone_pale_oak_planks"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "#blockus:beveled_glass",
+      "required": false
+    },
+    {
+      "id": "#blockus:neon",
+      "required": false
+    }
+  ]
+}

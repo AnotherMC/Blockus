@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "A": "minecraft:stone",
+    "B": "minecraft:black_dye",
+    "C": "minecraft:yellow_dye"
+  },
+  "pattern": [
+    " C ",
+    "BAB",
+    " C "
+  ],
+  "result": {
+    "count": 6,
+    "id": "blockus:caution_block"
+  }
+}

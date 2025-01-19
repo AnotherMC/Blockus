@@ -1,0 +1,14 @@
+{
+  "values": [
+    "blockus:purpur_bricks",
+    "blockus:polished_purpur",
+    "blockus:purpur_squares",
+    "blockus:small_purpur_bricks",
+    "blockus:chiseled_purpur",
+    "blockus:purpur_lines",
+    {
+      "id": "#blockus:phantom_purpur_blocks",
+      "required": false
+    }
+  ]
+}

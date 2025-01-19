@@ -1,0 +1,37 @@
+{
+  "values": [
+    "blockus:soul_o_lantern",
+    {
+      "id": "#blockus:framed_paper_blocks",
+      "required": false
+    },
+    {
+      "id": "#blockus:timber_frames",
+      "required": false
+    },
+    {
+      "id": "#blockus:wooden_lattices",
+      "required": false
+    },
+    {
+      "id": "#blockus:wooden_grates",
+      "required": false
+    },
+    {
+      "id": "#blockus:food_crates",
+      "required": false
+    },
+    {
+      "id": "#blockus:all_wooden_mosaics",
+      "required": false
+    },
+    {
+      "id": "#blockus:all_mossy_planks",
+      "required": false
+    },
+    {
+      "id": "#blockus:wooden_posts",
+      "required": false
+    }
+  ]
+}
