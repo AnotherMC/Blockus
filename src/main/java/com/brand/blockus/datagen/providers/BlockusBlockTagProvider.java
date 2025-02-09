@@ -713,9 +713,6 @@ public class BlockusBlockTagProvider extends FabricTagProvider.BlockTagProvider 
         this.getOrCreateTagBuilder(BlockTags.WOOL_CARPETS)
             .addOptionalTag(BlockusBlockTags.PATTERNED_CARPETS);
 
-        this.getOrCreateTagBuilder(BlockTags.INSIDE_STEP_SOUND_BLOCKS)
-            .add(RAINBOW_PETALS);
-
 //        this.getOrCreateTagBuilder(new Identifier("promenade", "cherry_oak_logs"))
 //            .addOptional(Blockus.id("cherry_oak_small_logs"));
 //

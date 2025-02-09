@@ -15,6 +15,7 @@ import net.minecraft.block.*;
 import net.minecraft.block.enums.NoteBlockInstrument;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.item.Item;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.ColorCode;
 import net.minecraft.util.DyeColor;
@@ -251,7 +252,7 @@ public class BlockusBlocks extends BlockFactory {
 
     // Rainbow
     public static final Block RAINBOW_ROSE = register("rainbow_rose", (settings) -> new FertilizableFlowerBlock(StatusEffects.GLOWING, 8, settings), create().mapColor(MapColor.DARK_GREEN).noCollision().breakInstantly().pistonBehavior(PistonBehavior.DESTROY).sounds(BlockSoundGroup.GRASS).offset(AbstractBlock.OffsetType.XZ));
-    public static final Block RAINBOW_PETALS = register("rainbow_petal", FlowerbedBlock::new, create().mapColor(MapColor.DARK_GREEN).noCollision().sounds(BlockSoundGroup.PINK_PETALS).pistonBehavior(PistonBehavior.DESTROY));
+    public static final Item RAINBOW_PETALS = BlockusItems.register("rainbow_petal");
 
     public static final Block POTTED_RAINBOW_ROSE = pottedPlant("potted_rainbow_rose", RAINBOW_ROSE);
     public static final Block RAINBOW_BLOCK = register("rainbow_block", FullFacingBlock::new, create().mapColor(MapColor.LIGHT_BLUE).strength(5.0f, 6.0f).requiresTool());

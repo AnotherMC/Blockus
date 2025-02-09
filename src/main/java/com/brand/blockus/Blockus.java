@@ -52,6 +52,7 @@ public class Blockus implements ModInitializer {
 
         Registries.ITEM.addAlias(id("white_oak_planks"), Identifier.ofVanilla("pale_oak_planks"));
         Registries.BLOCK.addAlias(id("white_oak_planks"), Identifier.ofVanilla("pale_oak_planks"));
+        Registries.BLOCK.addAlias(id("rainbow_petal"), id("rainbow_rose"));
     }
 
     public static Text STEPPED_ON_TEXT = Text.translatable(Util.createTranslationKey("blockitem", Blockus.id("when_stepped_on"))).formatted(Formatting.GRAY);

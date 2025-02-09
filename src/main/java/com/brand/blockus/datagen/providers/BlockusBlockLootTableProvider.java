@@ -280,7 +280,6 @@ public class BlockusBlockLootTableProvider extends FabricBlockLootTableProvider 
             ICE_PILLAR
             );
 
-        this.addDrop(RAINBOW_PETALS, this.flowerbedDrops(RAINBOW_PETALS));
         this.addPottedPlantDropsBatch(POTTED_WHITE_OAK_SAPLING, POTTED_RAINBOW_ROSE);
 
 
